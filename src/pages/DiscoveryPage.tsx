@@ -11,7 +11,7 @@ const DiscoveryPage: React.FC = () => {
         { name: 'Pizza', category: 'local_pizza', color: 'bg-orange-100', hoverColor: 'group-hover:bg-orange-400' },
         { name: 'Burgers', category: 'lunch_dining', color: 'bg-primary/10', hoverColor: 'group-hover:bg-primary' },
         { name: 'Sushi', category: 'set_meal', color: 'bg-red-50', hoverColor: 'group-hover:bg-red-400' },
-        { name: 'Tacos', category: 'taco', color: 'bg-yellow-50', hoverColor: 'group-hover:bg-yellow-400' },
+        { name: 'Tacos', category: 'fastfood', color: 'bg-yellow-50', hoverColor: 'group-hover:bg-yellow-400' },
         { name: 'Pasta', category: 'dinner_dining', color: 'bg-orange-50', hoverColor: 'group-hover:bg-orange-600' },
         { name: 'Desserts', category: 'icecream', color: 'bg-pink-100', hoverColor: 'group-hover:bg-pink-400' },
         { name: 'Asian', category: 'ramen_dining', color: 'bg-red-100', hoverColor: 'group-hover:bg-red-500' },

@@ -50,7 +50,7 @@ const LandingPage: React.FC = () => {
         { id: 'burger', name: 'Burgers', icon: 'lunch_dining', bg: 'bg-primary/10', hover: 'group-hover:bg-primary' },
         { id: 'pizza', name: 'Pizza', icon: 'local_pizza', bg: 'bg-orange-100', hover: 'group-hover:bg-orange-400' },
         { id: 'sushi', name: 'Sushi', icon: 'set_meal', bg: 'bg-red-50', hover: 'group-hover:bg-red-400' },
-        { id: 'tacos', name: 'Tacos', icon: 'taco', bg: 'bg-yellow-50', hover: 'group-hover:bg-yellow-400' },
+        { id: 'tacos', name: 'Tacos', icon: 'fastfood', bg: 'bg-yellow-50', hover: 'group-hover:bg-yellow-400' },
         { id: 'pasta', name: 'Pasta', icon: 'dinner_dining', bg: 'bg-orange-50', hover: 'group-hover:bg-orange-600' },
         { id: 'desserts', name: 'Desserts', icon: 'icecream', bg: 'bg-pink-100', hover: 'group-hover:bg-pink-400' },
         { id: 'asian', name: 'Asian', icon: 'ramen_dining', bg: 'bg-red-100', hover: 'group-hover:bg-red-500' },
