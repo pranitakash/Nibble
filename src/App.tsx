@@ -22,6 +22,11 @@ import RiderLoginPage from './pages/RiderLoginPage';
 import RestaurantDashboardPage from './pages/RestaurantDashboardPage';
 import RiderDashboardPage from './pages/RiderDashboardPage';
 import UserDashboardPage from './pages/UserDashboardPage';
+import MenuEditorPage from './pages/MenuEditorPage';
+import WalletPage from './pages/WalletPage';
+import OrdersPage from './pages/user/OrdersPage';
+import FavoritesPage from './pages/user/FavoritesPage';
+import AddressesPage from './pages/user/AddressesPage';
 import './App.css';
 
 const AppContent = () => {
@@ -50,8 +55,13 @@ const AppContent = () => {
       <Route element={<DashboardLayout />}>
         <Route path="dashboard" element={<UserDashboardPage />} />
         <Route path="restaurant-dashboard" element={<RestaurantDashboardPage />} />
+        <Route path="restaurant/menu-editor" element={<MenuEditorPage />} />
         <Route path="rider-dashboard" element={<RiderDashboardPage />} />
+        <Route path="rider/wallet" element={<WalletPage />} />
         <Route path="user-dashboard" element={<UserDashboardPage />} />
+        <Route path="user/orders" element={<OrdersPage />} />
+        <Route path="user/favorites" element={<FavoritesPage />} />
+        <Route path="user/addresses" element={<AddressesPage />} />
       </Route>
 
       {/* Auth Pages (Clean/Full Screen) */}
