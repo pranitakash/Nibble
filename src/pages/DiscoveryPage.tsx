@@ -59,27 +59,31 @@ const DiscoveryPage: React.FC = () => {
     ];
 
     return (
-        <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 overflow-x-hidden min-h-screen">
+        <div className="bg-[#fcfcf8] text-accent-dark antialiased min-h-screen">
             {/* Header Section */}
-            <section className="pt-32 pb-12 flex flex-col md:flex-row">
-                <div className="w-full md:w-1/2 bg-primary px-8 py-12 flex flex-col items-end">
+            <section className="pt-32 pb-0 flex flex-col md:flex-row">
+                <div className="w-full md:w-1/2 bg-primary px-8 lg:px-20 py-16 flex flex-col items-end justify-center">
                     <div className="w-full max-w-xl">
-                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 uppercase italic">Hungry?</h1>
-                        <p className="text-lg font-bold text-slate-800">Find the best local heroes near you.</p>
+                        <h1 className="text-5xl md:text-7xl font-black text-accent-dark mb-4 uppercase italic leading-none">
+                            Hungry?
+                        </h1>
+                        <p className="text-xl font-bold text-accent-dark/80">
+                            Find the best local heroes near you.
+                        </p>
                     </div>
                 </div>
-                <div className="w-full md:w-1/2 bg-accent-cream dark:bg-slate-900 px-8 py-12">
+                <div className="w-full md:w-1/2 bg-[#fcfcf8] px-8 lg:px-20 py-16 flex flex-col justify-center">
                     <div className="w-full max-w-xl">
-                        <div className="bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-2xl p-2 shadow-chunky flex items-center gap-2">
-                            <div className="pl-4 text-slate-400">
+                        <div className="bg-white border-4 border-accent-dark rounded-2xl p-2 shadow-chunky flex items-center gap-2 group transition-transform hover:-translate-y-1">
+                            <div className="pl-4 text-accent-dark/30">
                                 <span className="material-symbols-outlined text-3xl">search</span>
                             </div>
                             <input
-                                className="flex-1 bg-transparent border-none focus:ring-0 text-xl font-bold text-slate-900 dark:text-white placeholder:text-slate-400"
+                                className="flex-1 bg-transparent border-none focus:ring-0 text-xl font-bold text-accent-dark placeholder:text-accent-dark/30"
                                 placeholder="Search for sushi, burgers..."
                                 type="text"
                             />
-                            <button className="bg-primary hover:bg-[#ece805] text-slate-900 px-10 py-4 rounded-xl font-black text-xl border-2 border-slate-900 shadow-chunky-sm transition-all active:translate-x-1 active:translate-y-1 active:shadow-none uppercase">
+                            <button className="bg-primary hover:bg-yellow-400 text-accent-dark px-10 py-4 rounded-xl font-black text-xl border-2 border-accent-dark shadow-chunky-sm transition-all active:translate-x-1 active:translate-y-1 active:shadow-none uppercase">
                                 SEARCH
                             </button>
                         </div>
@@ -87,42 +91,42 @@ const DiscoveryPage: React.FC = () => {
                 </div>
             </section>
 
-            <main className="max-w-7xl mx-auto px-4 md:px-8 pb-32">
+            <main className="max-w-7xl mx-auto px-6 lg:px-20 py-20">
                 <div className="flex flex-col md:flex-row gap-12">
                     {/* Sidebar Filters */}
                     <aside className="w-full md:w-64 flex-shrink-0">
-                        <div className="md:sticky md:top-[120px] flex flex-col gap-8">
+                        <div className="md:sticky md:top-32 flex flex-col gap-8">
                             <div>
-                                <h3 className="text-2xl font-black mb-6 uppercase tracking-tighter">Cuisines</h3>
+                                <h3 className="text-2xl font-black mb-6 uppercase tracking-tighter text-accent-dark">Cuisines</h3>
                                 <div className="flex flex-col gap-4">
-                                    <button className="flex items-center gap-4 bg-primary px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 group hover:-translate-y-1 transition-transform">
+                                    <button className="flex items-center gap-4 bg-primary px-6 py-4 rounded-2xl border-2 border-accent-dark shadow-chunky-sm font-black text-accent-dark group hover:-translate-y-1 transition-transform">
                                         <span className="text-2xl">🍕</span>
                                         <span>Pizza</span>
                                     </button>
-                                    <button className="flex items-center gap-4 bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 dark:text-white group hover:-translate-y-1 transition-transform">
+                                    <button className="flex items-center gap-4 bg-white px-6 py-4 rounded-2xl border-2 border-accent-dark shadow-chunky-sm font-black text-accent-dark group hover:-translate-y-1 transition-transform">
                                         <span className="text-2xl">🍔</span>
                                         <span>Burgers</span>
                                     </button>
-                                    <button className="flex items-center gap-4 bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 dark:text-white group hover:-translate-y-1 transition-transform">
+                                    <button className="flex items-center gap-4 bg-white px-6 py-4 rounded-2xl border-2 border-accent-dark shadow-chunky-sm font-black text-accent-dark group hover:-translate-y-1 transition-transform">
                                         <span className="text-2xl">🍣</span>
                                         <span>Sushi</span>
                                     </button>
-                                    <button className="flex items-center gap-4 bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 dark:text-white group hover:-translate-y-1 transition-transform">
+                                    <button className="flex items-center gap-4 bg-white px-6 py-4 rounded-2xl border-2 border-accent-dark shadow-chunky-sm font-black text-accent-dark group hover:-translate-y-1 transition-transform">
                                         <span className="text-2xl">🌮</span>
                                         <span>Tacos</span>
                                     </button>
-                                    <button className="flex items-center gap-4 bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 dark:text-white group hover:-translate-y-1 transition-transform">
+                                    <button className="flex items-center gap-4 bg-white px-6 py-4 rounded-2xl border-2 border-accent-dark shadow-chunky-sm font-black text-accent-dark group hover:-translate-y-1 transition-transform">
                                         <span className="text-2xl">🥗</span>
                                         <span>Salads</span>
                                     </button>
                                 </div>
                             </div>
                             <div>
-                                <h3 className="text-xl font-black mb-4 uppercase tracking-tighter">Quick Sort</h3>
+                                <h3 className="text-xl font-black mb-4 uppercase tracking-tighter text-accent-dark">Quick Sort</h3>
                                 <div className="flex flex-wrap gap-2">
-                                    <button className="bg-slate-200 dark:bg-slate-700 px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-slate-900">Rating</button>
-                                    <button className="bg-white dark:bg-slate-800 px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-slate-900">Time</button>
-                                    <button className="bg-white dark:bg-slate-800 px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-slate-900">Popular</button>
+                                    <button className="bg-accent-dark/5 px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-accent-dark">Rating</button>
+                                    <button className="bg-white px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-accent-dark">Time</button>
+                                    <button className="bg-white px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-accent-dark">Popular</button>
                                 </div>
                             </div>
                         </div>
@@ -131,45 +135,45 @@ const DiscoveryPage: React.FC = () => {
                     {/* Results Grid */}
                     <div className="flex-1">
                         <div className="flex justify-between items-center mb-10">
-                            <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase">Popular Nearby <span className="text-primary bg-slate-900 px-3 rounded-lg">(124)</span></h2>
+                            <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase text-accent-dark">Popular Nearby <span className="text-primary bg-accent-dark px-3 rounded-xl">(124)</span></h2>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                             {restaurants.map((res) => (
-                                <div key={res.name} className="group bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-[2rem] overflow-hidden shadow-chunky hover:-translate-y-2 transition-transform cursor-pointer">
-                                    <div className="relative h-56 overflow-hidden">
+                                <div key={res.name} className="group bg-white border-4 border-accent-dark rounded-[2.5rem] overflow-hidden shadow-chunky hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+                                    <div className="relative h-64 overflow-hidden">
                                         <img
                                             alt={res.name}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                             src={res.image}
                                         />
                                         <div className="absolute top-4 left-4 flex gap-2">
-                                            <div className="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                            <div className="bg-primary text-accent-dark px-3 py-1 rounded-full text-xs font-black border-2 border-accent-dark shadow-chunky-sm">
                                                 {res.rating}
                                             </div>
-                                            <div className="bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                            <div className="bg-white text-accent-dark px-3 py-1 rounded-full text-xs font-black border-2 border-accent-dark shadow-chunky-sm">
                                                 {res.time}
                                             </div>
                                         </div>
-                                        <div className="absolute bottom-4 right-4 bg-slate-900 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                        <div className="absolute bottom-4 right-4 bg-accent-dark text-white px-3 py-1 rounded-full text-xs font-bold">
                                             {res.delivery}
                                         </div>
                                     </div>
-                                    <div className="p-6">
-                                        <h3 className="text-2xl font-black mb-1 group-hover:text-primary transition-colors">{res.name}</h3>
-                                        <p className="text-slate-500 dark:text-slate-400 font-bold text-sm mb-4">{res.tags}</p>
-                                        <div className="flex justify-between items-center pt-4 border-t-2 border-slate-100 dark:border-slate-700">
-                                            <span className="bg-accent-cream dark:bg-slate-700 text-slate-900 dark:text-white px-4 py-1 rounded-full text-xs font-bold border border-slate-900/10">
+                                    <div className="p-8">
+                                        <h3 className="text-2xl font-black mb-1 text-accent-dark group-hover:text-primary transition-colors">{res.name}</h3>
+                                        <p className="text-accent-dark/50 font-bold text-sm mb-6">{res.tags}</p>
+                                        <div className="flex justify-between items-center pt-6 border-t-2 border-accent-dark/5">
+                                            <span className="bg-primary/10 text-accent-dark px-4 py-1 rounded-full text-xs font-bold border-2 border-accent-dark/10">
                                                 {res.badge}
                                             </span>
-                                            <span className="material-symbols-outlined text-primary font-black">arrow_forward</span>
+                                            <span className="material-symbols-outlined text-primary font-black group-hover:translate-x-1 transition-transform">arrow_forward</span>
                                         </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        <div className="mt-16 flex justify-center">
-                            <button className="bg-slate-900 text-white px-12 py-5 rounded-2xl font-black text-xl border-2 border-slate-900 shadow-chunky transition-all hover:bg-slate-800 active:translate-x-1 active:translate-y-1 active:shadow-none">
-                                LOAD MORE HEROES
+                        <div className="mt-20 flex justify-center">
+                            <button className="bg-accent-dark text-white px-12 py-5 rounded-2xl font-black text-xl border-2 border-accent-dark shadow-chunky transition-all hover:bg-slate-800 active:translate-x-1 active:translate-y-1 active:shadow-none uppercase">
+                                Load More Heroes
                             </button>
                         </div>
                     </div>
