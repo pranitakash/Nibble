@@ -6,37 +6,36 @@ const ExploreNavbar: React.FC = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 lg:px-12">
-            <nav className="max-w-7xl mx-auto flex items-center justify-between bg-white/80 backdrop-blur-md border-2 border-accent-dark rounded-full px-6 py-3 shadow-chunky-sm">
-                <Link to="/" className="flex items-center gap-2">
-                    <div className="bg-primary p-1 rounded-lg border border-accent-dark">
-                        <span className="material-symbols-outlined text-accent-dark font-bold">fastfood</span>
+        <header className="absolute top-0 left-0 right-0 z-50 px-6 lg:px-12 pt-6">
+            <nav className="max-w-7xl mx-auto flex items-center justify-between bg-white border-2 border-accent-dark rounded-full px-6 py-2 shadow-chunky min-h-[72px] relative">
+                <Link to="/" className="flex items-center gap-2 py-1">
+                    <div className="bg-primary p-1.5 rounded-lg border border-accent-dark flex items-center justify-center">
+                        <span className="material-symbols-outlined text-accent-dark font-bold text-xl">fastfood</span>
                     </div>
                     <span className="text-xl font-black tracking-tight text-accent-dark">Nibble</span>
                 </Link>
 
-                <div className="hidden md:flex items-center gap-10">
-                    <Link to="/dashboard" className="text-sm font-black text-accent-dark hover:text-primary transition-colors uppercase tracking-tight">Dashboard</Link>
-
+                {/* Centered Cluster - Absolute Positioning */}
+                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 h-full">
+                    <Link to="/dashboard" className="text-sm font-black text-accent-dark hover:text-primary transition-colors uppercase tracking-tight py-2 leading-none">Dashboard</Link>
                     <button
                         onClick={() => setIsSearchOpen(true)}
-                        className="flex items-center gap-2 text-sm font-black text-accent-dark hover:text-primary transition-colors group"
+                        className="flex items-center gap-2 text-sm font-black text-accent-dark hover:text-primary transition-colors group py-2 leading-none"
                     >
                         <span className="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">search</span>
                         <span className="uppercase tracking-tight">Search</span>
                     </button>
-
-                    <Link to="/contact" className="text-sm font-black text-accent-dark hover:text-primary transition-colors uppercase tracking-tight">Contact Us</Link>
+                    <Link to="/contact" className="text-sm font-black text-accent-dark hover:text-primary transition-colors uppercase tracking-tight py-2 leading-none">Contact Us</Link>
                 </div>
 
-                <div className="flex items-center gap-4">
-                    {/* Location Field */}
-                    <div className="hidden lg:flex items-center gap-2 bg-accent-dark/5 px-4 py-2 rounded-full border border-accent-dark/10 group cursor-pointer hover:border-accent-dark/30 transition-colors">
-                        <span className="material-symbols-outlined text-sm text-primary">location_on</span>
-                        <span className="text-xs font-bold text-accent-dark/60 max-w-[150px] truncate">123 Food Street, Manhattan</span>
+                <div className="flex items-center gap-4 h-full">
+                    {/* Compact Location Field */}
+                    <div className="hidden lg:flex items-center gap-2 bg-accent-dark/5 px-3 py-2 rounded-full border border-accent-dark/10 group cursor-pointer hover:border-accent-dark/30 transition-colors">
+                        <span className="material-symbols-outlined text-xs text-primary">location_on</span>
+                        <span className="text-[10px] font-black uppercase text-accent-dark/50 max-w-[120px] truncate tracking-tighter">123 Food Street, Manha...</span>
                     </div>
 
-                    <button className="bg-primary border-2 border-accent-dark shadow-chunky-sm px-6 py-2 rounded-full text-sm font-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all uppercase">
+                    <button className="bg-primary border-2 border-accent-dark shadow-chunky-sm px-6 py-3 rounded-full text-sm font-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all uppercase leading-none">
                         Log Out
                     </button>
                 </div>
