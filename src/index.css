@@ -19,6 +19,10 @@
 
   --shadow-chunky: 8px 8px 0px 0px #1c1c0d;
   --shadow-chunky-sm: 4px 4px 0px 0px #1c1c0d;
+  --shadow-chunky-primary: 8px 8px 0px 0px #f9f506;
+  --shadow-chunky-white: 8px 8px 0px 0px #ffffff;
+  --shadow-chunky-sm-primary: 4px 4px 0px 0px #f9f506;
+  --shadow-chunky-sm-white: 4px 4px 0px 0px #ffffff;
 }
 
 :root {
@@ -35,4 +39,15 @@
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

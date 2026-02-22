@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <button className="hidden sm:block text-sm font-bold px-4 py-2">Log In</button>
+                    <button className="hidden sm:block text-sm font-bold px-4 py-2 hover:bg-black/5 rounded-full transition-all active:scale-95">Log In</button>
                     <button className="bg-primary border-2 border-accent-dark shadow-chunky-sm px-6 py-2 rounded-full text-sm font-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
                         Sign Up
                     </button>

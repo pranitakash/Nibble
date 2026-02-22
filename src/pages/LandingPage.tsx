@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const LandingPage: React.FC = () => {
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (scrollRef.current) {
+            const { scrollLeft, clientWidth } = scrollRef.current;
+            const scrollTo = direction === 'left' ? scrollLeft - clientWidth / 2 : scrollLeft + clientWidth / 2;
+            scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+        }
+    };
     return (
         <div className="bg-background-light text-accent-dark antialiased">
             {/* Main Hero Section */}
@@ -137,18 +146,25 @@ const LandingPage: React.FC = () => {
                             <p className="text-lg font-medium text-accent-dark/60">Explore the best local spots by category</p>
                         </div>
                         <div className="flex gap-4">
-                            <button className="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center hover:bg-primary transition-colors shadow-chunky-sm active:translate-y-1 active:shadow-none">
+                            <button
+                                onClick={() => scroll('left')}
+                                className="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center hover:bg-primary transition-colors shadow-chunky-sm active:translate-y-1 active:shadow-none">
                                 <span className="material-symbols-outlined">arrow_back</span>
                             </button>
-                            <button className="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center bg-primary hover:bg-yellow-400 transition-colors shadow-chunky-sm active:translate-y-1 active:shadow-none">
+                            <button
+                                onClick={() => scroll('right')}
+                                className="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center bg-primary hover:bg-yellow-400 transition-colors shadow-chunky-sm active:translate-y-1 active:shadow-none">
                                 <span className="material-symbols-outlined">arrow_forward</span>
                             </button>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <div
+                        ref={scrollRef}
+                        className="flex overflow-x-auto gap-6 pt-4 pb-12 px-2 no-scrollbar scroll-smooth snap-x"
+                    >
                         {/* Burger */}
-                        <div className="group cursor-pointer">
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
                             <div className="bg-primary/10 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-primary group-hover:shadow-chunky">
                                 <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
                                     <span className="material-symbols-outlined text-4xl">lunch_dining</span>
@@ -158,7 +174,7 @@ const LandingPage: React.FC = () => {
                         </div>
 
                         {/* Pizza */}
-                        <div className="group cursor-pointer">
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
                             <div className="bg-orange-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-400 group-hover:shadow-chunky">
                                 <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
                                     <span className="material-symbols-outlined text-4xl">local_pizza</span>
@@ -168,7 +184,7 @@ const LandingPage: React.FC = () => {
                         </div>
 
                         {/* Sushi */}
-                        <div className="group cursor-pointer">
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
                             <div className="bg-red-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-400 group-hover:shadow-chunky">
                                 <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
                                     <span className="material-symbols-outlined text-4xl">set_meal</span>
@@ -177,8 +193,28 @@ const LandingPage: React.FC = () => {
                             </div>
                         </div>
 
+                        {/* Tacos */}
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
+                            <div className="bg-yellow-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-yellow-400 group-hover:shadow-chunky">
+                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                    <span className="material-symbols-outlined text-4xl">taco</span>
+                                </div>
+                                <p className="text-center font-black text-accent-dark">Tacos</p>
+                            </div>
+                        </div>
+
+                        {/* Pasta */}
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
+                            <div className="bg-orange-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-600 group-hover:shadow-chunky">
+                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                    <span className="material-symbols-outlined text-4xl">dinner_dining</span>
+                                </div>
+                                <p className="text-center font-black text-accent-dark">Pasta</p>
+                            </div>
+                        </div>
+
                         {/* Desserts */}
-                        <div className="group cursor-pointer">
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
                             <div className="bg-pink-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-pink-400 group-hover:shadow-chunky">
                                 <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
                                     <span className="material-symbols-outlined text-4xl">icecream</span>
@@ -187,8 +223,18 @@ const LandingPage: React.FC = () => {
                             </div>
                         </div>
 
+                        {/* Asian */}
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
+                            <div className="bg-red-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-500 group-hover:shadow-chunky">
+                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                    <span className="material-symbols-outlined text-4xl">ramen_dining</span>
+                                </div>
+                                <p className="text-center font-black text-accent-dark">Asian</p>
+                            </div>
+                        </div>
+
                         {/* Healthy */}
-                        <div className="group cursor-pointer">
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
                             <div className="bg-green-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-green-400 group-hover:shadow-chunky">
                                 <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
                                     <span className="material-symbols-outlined text-4xl">potted_plant</span>
@@ -198,12 +244,22 @@ const LandingPage: React.FC = () => {
                         </div>
 
                         {/* Drinks */}
-                        <div className="group cursor-pointer">
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
                             <div className="bg-blue-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-blue-400 group-hover:shadow-chunky">
                                 <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
                                     <span className="material-symbols-outlined text-4xl">local_bar</span>
                                 </div>
                                 <p className="text-center font-black text-accent-dark">Drinks</p>
+                            </div>
+                        </div>
+
+                        {/* Bakery */}
+                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
+                            <div className="bg-amber-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-amber-400 group-hover:shadow-chunky">
+                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                    <span className="material-symbols-outlined text-4xl">bakery_dining</span>
+                                </div>
+                                <p className="text-center font-black text-accent-dark">Bakery</p>
                             </div>
                         </div>
                     </div>
@@ -213,11 +269,11 @@ const LandingPage: React.FC = () => {
             {/* Call to Action for Partners */}
             <section className="px-6 lg:px-20 pb-20">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-accent-dark rounded-3xl p-10 text-white relative overflow-hidden group">
+                    <div className="bg-accent-dark rounded-3xl p-10 text-white relative overflow-hidden group shadow-chunky-primary">
                         <div className="relative z-10">
                             <h3 className="text-4xl font-black mb-4">Be a Hero Rider</h3>
                             <p className="text-lg text-white/70 mb-8 max-w-sm leading-relaxed">Earn extra cash on your own schedule. Join our fleet of delivery heroes today.</p>
-                            <button className="bg-primary text-accent-dark px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform border-2 border-transparent hover:border-white">
+                            <button className="bg-primary text-accent-dark px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform border-2 border-transparent hover:border-white shadow-chunky-sm-white">
                                 Join the Squad
                             </button>
                         </div>
@@ -227,7 +283,7 @@ const LandingPage: React.FC = () => {
                         <div className="relative z-10">
                             <h3 className="text-4xl font-black mb-4">Boost Sales</h3>
                             <p className="text-lg text-accent-dark/60 mb-8 max-w-sm leading-relaxed">Partner with Nibble and watch your orders skyrocket. We handle the logistics.</p>
-                            <button className="bg-accent-dark text-white px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform shadow-chunky-sm">
+                            <button className="bg-accent-dark text-white px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform shadow-chunky-sm-primary">
                                 Add Restaurant
                             </button>
                         </div>
