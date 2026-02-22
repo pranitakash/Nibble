@@ -5,9 +5,9 @@ const AboutPage: React.FC = () => {
     return (
         <div className="bg-cream text-accent-dark antialiased font-display">
             <main>
-                <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 bg-primary relative overflow-hidden border-b-4 border-accent-dark">
+                <section className="pt-0 pb-20 lg:pb-32 bg-primary relative overflow-hidden border-b-4 border-accent-dark">
                     <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#1c1c0d 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                    <div className="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-20 relative z-10 pt-32 lg:pt-40">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <motion.div
                                 initial={{ opacity: 0, x: -50 }}
@@ -48,7 +48,7 @@ const AboutPage: React.FC = () => {
                 <section className="py-24 px-6 lg:px-20 bg-cream">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-20">
-                            <h2 className="text-4xl lg:text-5xl font-black mb-6">The FoodieHero Story</h2>
+                            <h2 className="text-4xl lg:text-5xl font-black mb-6">The Nibble Story</h2>
                             <p className="text-xl font-bold text-accent-dark/60 max-w-2xl mx-auto">
                                 From a single delivery to a nationwide community, we've always put people and flavor first.
                             </p>
@@ -98,12 +98,20 @@ const AboutPage: React.FC = () => {
                     <div className="max-w-4xl mx-auto text-center">
                         <h2 className="text-5xl lg:text-6xl font-black mb-8">Ready to join the movement?</h2>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <button className="bg-accent-dark text-white px-10 py-5 rounded-full font-black text-xl shadow-chunky hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-accent-dark text-white px-10 py-5 rounded-full font-black text-xl shadow-chunky transition-all"
+                            >
                                 Become a Partner
-                            </button>
-                            <button className="bg-white border-4 border-accent-dark px-10 py-5 rounded-full font-black text-xl shadow-chunky-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-white border-4 border-accent-dark px-10 py-5 rounded-full font-black text-xl shadow-chunky-sm transition-all"
+                            >
                                 Download App
-                            </button>
+                            </motion.button>
                         </div>
                     </div>
                 </section>

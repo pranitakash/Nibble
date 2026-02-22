@@ -1,24 +1,73 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const LandingPage: React.FC = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
-            const { scrollLeft, clientWidth } = scrollRef.current;
-            const scrollTo = direction === 'left' ? scrollLeft - clientWidth / 2 : scrollLeft + clientWidth / 2;
+            const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
+            const singleSetWidth = scrollWidth / 3;
+            let scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+
+            // Handle wrap around during manual button click
+            if (direction === 'right' && scrollTo >= singleSetWidth * 2) {
+                scrollRef.current.scrollLeft = scrollLeft - singleSetWidth;
+                scrollTo = scrollRef.current.scrollLeft + clientWidth;
+            } else if (direction === 'left' && scrollTo <= 0) {
+                scrollRef.current.scrollLeft = scrollLeft + singleSetWidth;
+                scrollTo = scrollRef.current.scrollLeft - clientWidth;
+            }
+
             scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
         }
     };
+
+    // Initialize scroll position to the middle set for infinite effect
+    React.useEffect(() => {
+        if (scrollRef.current) {
+            const { scrollWidth } = scrollRef.current;
+            scrollRef.current.scrollLeft = scrollWidth / 3;
+        }
+    }, []);
+
+    // Monitor scroll for infinite loop reset
+    const handleInfiniteScroll = () => {
+        if (scrollRef.current) {
+            const { scrollLeft, scrollWidth } = scrollRef.current;
+            const singleSetWidth = scrollWidth / 3;
+
+            if (scrollLeft <= 0) {
+                scrollRef.current.scrollLeft = singleSetWidth;
+            } else if (scrollLeft >= singleSetWidth * 2) {
+                scrollRef.current.scrollLeft = singleSetWidth;
+            }
+        }
+    };
+
+    const categories = [
+        { id: 'burger', name: 'Burgers', icon: 'lunch_dining', bg: 'bg-primary/10', hover: 'group-hover:bg-primary' },
+        { id: 'pizza', name: 'Pizza', icon: 'local_pizza', bg: 'bg-orange-100', hover: 'group-hover:bg-orange-400' },
+        { id: 'sushi', name: 'Sushi', icon: 'set_meal', bg: 'bg-red-50', hover: 'group-hover:bg-red-400' },
+        { id: 'tacos', name: 'Tacos', icon: 'taco', bg: 'bg-yellow-50', hover: 'group-hover:bg-yellow-400' },
+        { id: 'pasta', name: 'Pasta', icon: 'dinner_dining', bg: 'bg-orange-50', hover: 'group-hover:bg-orange-600' },
+        { id: 'desserts', name: 'Desserts', icon: 'icecream', bg: 'bg-pink-100', hover: 'group-hover:bg-pink-400' },
+        { id: 'asian', name: 'Asian', icon: 'ramen_dining', bg: 'bg-red-100', hover: 'group-hover:bg-red-500' },
+        { id: 'healthy', name: 'Healthy', icon: 'potted_plant', bg: 'bg-green-100', hover: 'group-hover:bg-green-400' },
+        { id: 'drinks', name: 'Drinks', icon: 'local_bar', bg: 'bg-blue-100', hover: 'group-hover:bg-blue-400' },
+        { id: 'bakery', name: 'Bakery', icon: 'bakery_dining', bg: 'bg-amber-100', hover: 'group-hover:bg-amber-400' },
+    ];
+
+    const tripledCategories = [...categories, ...categories, ...categories];
     return (
         <div className="bg-background-light text-accent-dark antialiased">
             {/* Main Hero Section */}
-            <main className="min-h-screen flex flex-col lg:flex-row pt-24"
+            <main className="min-h-screen flex flex-col lg:flex-row pt-0"
                 style={{ background: 'linear-gradient(90deg, #f9f506 50%, #fcfcf8 50%)' }}>
 
                 {/* Left Side: Content */}
-                <div className="flex-1 flex items-center px-6 lg:px-20 py-12">
+                <div className="flex-1 flex items-center px-6 lg:px-20 pt-32 lg:pt-40 pb-12">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -32,7 +81,7 @@ const LandingPage: React.FC = () => {
                             Fastest Food <span className="bg-white px-2">Delivery.</span> Easy Pickup.
                         </h1>
                         <p className="text-lg lg:text-xl font-medium text-accent-dark/80 mb-10 leading-relaxed">
-                            Your favorite meals from local heroes, delivered to your door in a flash. No hidden fees, just great food.
+                            Your favorite meals from local spots, delivered to your door in a flash. No hidden fees, just great food.
                         </p>
 
                         {/* Chunky Search Bar */}
@@ -46,9 +95,15 @@ const LandingPage: React.FC = () => {
                                         type="text"
                                     />
                                 </div>
-                                <button className="bg-primary px-8 py-4 sm:py-2 text-accent-dark font-black text-lg hover:bg-yellow-400 transition-colors border-t-4 sm:border-t-0 sm:border-l-4 border-accent-dark">
-                                    Find Food
-                                </button>
+                                <Link to="/login" className="flex">
+                                    <motion.button
+                                        whileHover={{ backgroundColor: '#f9f506', scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="bg-primary px-8 py-4 sm:py-2 text-accent-dark font-black text-lg transition-colors border-t-4 sm:border-t-0 sm:border-l-4 border-accent-dark h-full"
+                                    >
+                                        Find Food
+                                    </motion.button>
+                                </Link>
                             </div>
                         </div>
 
@@ -72,7 +127,7 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Right Side: Mascot and Badges */}
-                <div className="flex-1 relative flex items-center justify-center min-h-[500px] lg:min-h-0 overflow-hidden">
+                <div className="flex-1 relative flex items-center justify-center min-h-[500px] lg:min-h-0 overflow-hidden pt-32 lg:pt-40 pb-12">
                     {/* Floating Elements Background Decoration */}
                     <div className="absolute inset-0 pointer-events-none">
                         <div className="absolute top-20 right-20 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
@@ -146,129 +201,41 @@ const LandingPage: React.FC = () => {
                             <p className="text-lg font-medium text-accent-dark/60">Explore the best local spots by category</p>
                         </div>
                         <div className="flex gap-4">
-                            <button
+                            <motion.button
+                                whileHover={{ scale: 1.1, backgroundColor: '#f9f506' }}
+                                whileTap={{ scale: 0.9 }}
                                 onClick={() => scroll('left')}
-                                className="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center hover:bg-primary transition-colors shadow-chunky-sm active:translate-y-1 active:shadow-none">
+                                className="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center transition-colors shadow-chunky-sm"
+                            >
                                 <span className="material-symbols-outlined">arrow_back</span>
-                            </button>
-                            <button
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.1, backgroundColor: '#e6df00' }}
+                                whileTap={{ scale: 0.9 }}
                                 onClick={() => scroll('right')}
-                                className="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center bg-primary hover:bg-yellow-400 transition-colors shadow-chunky-sm active:translate-y-1 active:shadow-none">
+                                className="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center bg-primary transition-colors shadow-chunky-sm"
+                            >
                                 <span className="material-symbols-outlined">arrow_forward</span>
-                            </button>
+                            </motion.button>
                         </div>
                     </div>
                 </div>
 
                 <div
                     ref={scrollRef}
+                    onScroll={handleInfiniteScroll}
                     className="flex overflow-x-auto gap-6 pt-4 pb-12 no-scrollbar scroll-smooth snap-x"
                 >
-                    {/* Spacer for alignment */}
-                    <div className="min-w-[max(1.5rem,calc((100vw-1280px)/2+5rem))] flex-shrink-0" />
-
-                    {/* Burger */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-primary/10 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-primary group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">lunch_dining</span>
+                    {tripledCategories.map((cat, idx) => (
+                        <div key={`${cat.id}-${idx}`} className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                            <div className={`${cat.bg} rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 ${cat.hover} group-hover:shadow-chunky`}>
+                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                    <span className="material-symbols-outlined text-4xl">{cat.icon}</span>
+                                </div>
+                                <p className="text-center font-black text-accent-dark">{cat.name}</p>
                             </div>
-                            <p className="text-center font-black text-accent-dark">Burgers</p>
                         </div>
-                    </div>
-
-                    {/* Pizza */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-orange-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-400 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">local_pizza</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Pizza</p>
-                        </div>
-                    </div>
-
-                    {/* Sushi */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-red-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-400 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">set_meal</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Sushi</p>
-                        </div>
-                    </div>
-
-                    {/* Tacos */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-yellow-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-yellow-400 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">taco</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Tacos</p>
-                        </div>
-                    </div>
-
-                    {/* Pasta */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-orange-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-600 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">dinner_dining</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Pasta</p>
-                        </div>
-                    </div>
-
-                    {/* Desserts */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-pink-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-pink-400 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">icecream</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Desserts</p>
-                        </div>
-                    </div>
-
-                    {/* Asian */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-red-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-500 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">ramen_dining</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Asian</p>
-                        </div>
-                    </div>
-
-                    {/* Healthy */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-green-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-green-400 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">potted_plant</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Healthy</p>
-                        </div>
-                    </div>
-
-                    {/* Drinks */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-blue-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-blue-400 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">local_bar</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Drinks</p>
-                        </div>
-                    </div>
-
-                    {/* Bakery */}
-                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
-                        <div className="bg-amber-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-amber-400 group-hover:shadow-chunky">
-                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                <span className="material-symbols-outlined text-4xl">bakery_dining</span>
-                            </div>
-                            <p className="text-center font-black text-accent-dark">Bakery</p>
-                        </div>
-                    </div>
-
-                    {/* End Spacer */}
-                    <div className="min-w-[max(1.5rem,calc((100vw-1280px)/2+5rem))] flex-shrink-0" />
+                    ))}
                 </div>
             </section>
 
@@ -277,11 +244,17 @@ const LandingPage: React.FC = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-accent-dark rounded-3xl p-10 text-white relative overflow-hidden group shadow-chunky-primary">
                         <div className="relative z-10">
-                            <h3 className="text-4xl font-black mb-4">Be a Hero Rider</h3>
-                            <p className="text-lg text-white/70 mb-8 max-w-sm leading-relaxed">Earn extra cash on your own schedule. Join our fleet of delivery heroes today.</p>
-                            <button className="bg-primary text-accent-dark px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform border-2 border-transparent hover:border-white shadow-chunky-sm-white">
-                                Join the Squad
-                            </button>
+                            <h3 className="text-4xl font-black mb-4">Be a Nibble Rider</h3>
+                            <p className="text-lg text-white/70 mb-8 max-w-sm leading-relaxed">Earn extra cash on your own schedule. Join our fleet of delivery partners today.</p>
+                            <Link to="/rider-signup">
+                                <motion.button
+                                    whileHover={{ x: 10, scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-primary text-accent-dark px-8 py-3 rounded-full font-black border-2 border-transparent hover:border-white shadow-chunky-sm-white transition-all"
+                                >
+                                    Join the Squad
+                                </motion.button>
+                            </Link>
                         </div>
                         <span className="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] text-white/10 rotate-12 group-hover:rotate-0 transition-transform duration-700">pedal_bike</span>
                     </div>
@@ -289,9 +262,15 @@ const LandingPage: React.FC = () => {
                         <div className="relative z-10">
                             <h3 className="text-4xl font-black mb-4">Boost Sales</h3>
                             <p className="text-lg text-accent-dark/60 mb-8 max-w-sm leading-relaxed">Partner with Nibble and watch your orders skyrocket. We handle the logistics.</p>
-                            <button className="bg-accent-dark text-white px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform shadow-chunky-sm-primary">
-                                Add Restaurant
-                            </button>
+                            <Link to="/partner-signup">
+                                <motion.button
+                                    whileHover={{ x: 10, scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-accent-dark text-white px-8 py-3 rounded-full font-black shadow-chunky-sm-primary transition-all"
+                                >
+                                    Add Restaurant
+                                </motion.button>
+                            </Link>
                         </div>
                         <span className="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] text-accent-dark/5 -rotate-12 group-hover:rotate-0 transition-transform duration-700">storefront</span>
                     </div>

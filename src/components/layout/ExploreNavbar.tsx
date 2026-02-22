@@ -6,8 +6,9 @@ const ExploreNavbar: React.FC = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     return (
-        <header className="absolute top-0 left-0 right-0 z-50 px-6 lg:px-12 pt-6">
-            <nav className="max-w-7xl mx-auto flex items-center justify-between bg-white border-2 border-accent-dark rounded-full px-6 py-2 shadow-chunky min-h-[72px] relative">
+        <header className="absolute top-0 left-0 right-0 z-[60] px-6 pt-2 pb-4 lg:px-12 transition-all">
+            <nav className="max-w-7xl mx-auto flex items-center justify-between bg-white/80 backdrop-blur-md border-2 border-accent-dark rounded-full px-6 py-2 shadow-chunky-sm min-h-[72px] relative">
+                {/* Left: Branding & Location */}
                 <Link to="/" className="flex items-center gap-2 py-1">
                     <div className="bg-primary p-1.5 rounded-lg border border-accent-dark flex items-center justify-center">
                         <span className="material-symbols-outlined text-accent-dark font-bold text-xl">fastfood</span>
@@ -17,27 +18,31 @@ const ExploreNavbar: React.FC = () => {
 
                 {/* Centered Cluster - Absolute Positioning */}
                 <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 h-full">
-                    <Link to="/dashboard" className="text-sm font-black text-accent-dark hover:text-primary transition-colors uppercase tracking-tight py-2 leading-none">Dashboard</Link>
+                    <Link to="/dashboard" className="text-sm font-bold text-accent-dark hover:text-primary transition-colors py-2 leading-none">Dashboard</Link>
                     <button
                         onClick={() => setIsSearchOpen(true)}
-                        className="flex items-center gap-2 text-sm font-black text-accent-dark hover:text-primary transition-colors group py-2 leading-none"
+                        className="flex items-center gap-2 text-sm font-bold text-accent-dark hover:text-primary transition-colors group py-2 leading-none"
                     >
                         <span className="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">search</span>
-                        <span className="uppercase tracking-tight">Search</span>
+                        <span>Search</span>
                     </button>
-                    <Link to="/contact" className="text-sm font-black text-accent-dark hover:text-primary transition-colors uppercase tracking-tight py-2 leading-none">Contact Us</Link>
+                    <Link to="/contact" className="text-sm font-bold text-accent-dark hover:text-primary transition-colors py-2 leading-none">Contact Us</Link>
                 </div>
 
                 <div className="flex items-center gap-4 h-full">
                     {/* Compact Location Field */}
                     <div className="hidden lg:flex items-center gap-2 bg-accent-dark/5 px-3 py-2 rounded-full border border-accent-dark/10 group cursor-pointer hover:border-accent-dark/30 transition-colors">
                         <span className="material-symbols-outlined text-xs text-primary">location_on</span>
-                        <span className="text-[10px] font-black uppercase text-accent-dark/50 max-w-[120px] truncate tracking-tighter">123 Food Street, Manha...</span>
+                        <span className="text-[10px] font-bold uppercase text-accent-dark/50 max-w-[120px] truncate tracking-tight">123 Food Street, Manha...</span>
                     </div>
 
-                    <button className="bg-primary border-2 border-accent-dark shadow-chunky-sm px-6 py-3 rounded-full text-sm font-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all uppercase leading-none">
+                    <motion.button
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95, y: 0 }}
+                        className="bg-primary border-2 border-accent-dark shadow-chunky-sm px-6 py-3 rounded-full text-sm font-black transition-all leading-none"
+                    >
                         Log Out
-                    </button>
+                    </motion.button>
                 </div>
             </nav>
 
@@ -79,19 +84,21 @@ const ExploreNavbar: React.FC = () => {
                             <div className="mt-8 flex flex-wrap gap-4">
                                 <span className="text-xs font-black text-accent-dark/40 uppercase w-full">Quick suggestions:</span>
                                 {['Pizza', 'Burger', 'Healthy', 'Japanese'].map((tag) => (
-                                    <button
+                                    <motion.button
                                         key={tag}
-                                        className="bg-accent-dark/5 hover:bg-primary px-4 py-2 rounded-full text-sm font-bold text-accent-dark transition-colors border border-accent-dark/10"
+                                        whileHover={{ scale: 1.1, backgroundColor: '#f9f506' }}
+                                        whileTap={{ scale: 0.9 }}
+                                        className="bg-accent-dark/5 px-4 py-2 rounded-full text-sm font-bold text-accent-dark transition-colors border border-accent-dark/10"
                                     >
                                         {tag}
-                                    </button>
+                                    </motion.button>
                                 ))}
                             </div>
                         </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </header>
+        </header >
     );
 };
 

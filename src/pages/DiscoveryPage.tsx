@@ -8,21 +8,21 @@ const DiscoveryPage: React.FC = () => {
     const [visibleCount, setVisibleCount] = useState(6);
 
     const cuisines = [
-        { name: 'Pizza', icon: '🍕', category: 'local_pizza', color: 'bg-orange-100', hoverColor: 'group-hover:bg-orange-400' },
-        { name: 'Burgers', icon: '🍔', category: 'lunch_dining', color: 'bg-primary/10', hoverColor: 'group-hover:bg-primary' },
-        { name: 'Sushi', icon: '🍣', category: 'set_meal', color: 'bg-red-50', hoverColor: 'group-hover:bg-red-400' },
-        { name: 'Tacos', icon: '🌮', category: 'taco', color: 'bg-yellow-50', hoverColor: 'group-hover:bg-yellow-400' },
-        { name: 'Pasta', icon: '🍝', category: 'dinner_dining', color: 'bg-orange-50', hoverColor: 'group-hover:bg-orange-600' },
-        { name: 'Desserts', icon: '🍰', category: 'icecream', color: 'bg-pink-100', hoverColor: 'group-hover:bg-pink-400' },
-        { name: 'Asian', icon: '🍜', category: 'ramen_dining', color: 'bg-red-100', hoverColor: 'group-hover:bg-red-500' },
-        { name: 'Healthy', icon: '🥗', category: 'potted_plant', color: 'bg-green-100', hoverColor: 'group-hover:bg-green-400' },
-        { name: 'Drinks', icon: '🍹', category: 'local_bar', color: 'bg-blue-100', hoverColor: 'group-hover:bg-blue-400' },
-        { name: 'Bakery', icon: '🥐', category: 'bakery_dining', color: 'bg-amber-100', hoverColor: 'group-hover:bg-amber-400' },
+        { name: 'Pizza', category: 'local_pizza', color: 'bg-orange-100', hoverColor: 'group-hover:bg-orange-400' },
+        { name: 'Burgers', category: 'lunch_dining', color: 'bg-primary/10', hoverColor: 'group-hover:bg-primary' },
+        { name: 'Sushi', category: 'set_meal', color: 'bg-red-50', hoverColor: 'group-hover:bg-red-400' },
+        { name: 'Tacos', category: 'taco', color: 'bg-yellow-50', hoverColor: 'group-hover:bg-yellow-400' },
+        { name: 'Pasta', category: 'dinner_dining', color: 'bg-orange-50', hoverColor: 'group-hover:bg-orange-600' },
+        { name: 'Desserts', category: 'icecream', color: 'bg-pink-100', hoverColor: 'group-hover:bg-pink-400' },
+        { name: 'Asian', category: 'ramen_dining', color: 'bg-red-100', hoverColor: 'group-hover:bg-red-500' },
+        { name: 'Healthy', category: 'potted_plant', color: 'bg-green-100', hoverColor: 'group-hover:bg-green-400' },
+        { name: 'Drinks', category: 'local_bar', color: 'bg-blue-100', hoverColor: 'group-hover:bg-blue-400' },
+        { name: 'Bakery', category: 'bakery_dining', color: 'bg-amber-100', hoverColor: 'group-hover:bg-amber-400' },
     ];
 
     const allRestaurants = [
         {
-            name: 'Burger Hero HQ',
+            name: 'Burger Nibble HQ',
             rating: '★ 4.9',
             time: '15-25 min',
             tags: 'Gourmet Burgers • American • Fries',
@@ -299,32 +299,28 @@ const DiscoveryPage: React.FC = () => {
 
     return (
         <div className="bg-[#fcfcf8] text-accent-dark antialiased min-h-screen">
-            {/* Header Section */}
-            <section className="pt-32 pb-0 flex flex-col md:flex-row">
-                <div className="w-full md:w-1/2 bg-primary px-8 lg:px-20 py-16 flex flex-col items-end justify-center">
-                    <div className="w-full max-w-xl">
-                        <h1 className="text-5xl md:text-7xl font-black text-accent-dark mb-4 uppercase italic leading-none">
-                            Hungry?
+            {/* Authenticated Header Section */}
+            <section className="pt-32 lg:pt-40 pb-12 px-6 lg:px-20 border-b-2 border-accent-dark/5 bg-white">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-8">
+                    <div className="max-w-2xl">
+                        <div className="inline-block bg-primary text-accent-dark px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4 border border-accent-dark">
+                            MARKETPLACE ACTIVE
+                        </div>
+                        <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
+                            Discover Your <span className="bg-primary px-2">Next Meal</span>
                         </h1>
-                        <p className="text-xl font-bold text-accent-dark/80">
-                            Find the best local heroes near you.
+                        <p className="mt-4 text-lg font-bold text-accent-dark/50">
+                            The best kitchens in the city, delivered to your door.
                         </p>
                     </div>
-                </div>
-                <div className="w-full md:w-1/2 bg-[#fcfcf8] px-8 lg:px-20 py-16 flex flex-col justify-center">
-                    <div className="w-full max-w-xl">
-                        <div className="bg-white border-4 border-accent-dark rounded-2xl p-2 shadow-chunky flex items-center gap-2 transition-transform hover:-translate-y-1">
-                            <div className="pl-4 text-accent-dark/30">
-                                <span className="material-symbols-outlined text-3xl">search</span>
-                            </div>
+                    <div className="w-full md:w-96">
+                        <div className="bg-white border-4 border-accent-dark rounded-2xl p-4 flex items-center gap-4 shadow-chunky hover:-translate-y-1 transition-all">
+                            <span className="material-symbols-outlined text-3xl text-accent-dark/30 ml-2">search</span>
                             <input
-                                className="flex-1 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-xl font-bold text-accent-dark placeholder:text-accent-dark/30"
-                                placeholder="Search for sushi, burgers..."
+                                className="flex-1 bg-transparent border-none outline-none focus:ring-0 text-lg font-bold text-accent-dark placeholder:text-accent-dark/30"
+                                placeholder="Sushi, Burger, Pizza..."
                                 type="text"
                             />
-                            <button className="bg-primary hover:bg-yellow-400 text-accent-dark px-10 py-4 rounded-xl font-black text-xl border-2 border-accent-dark shadow-chunky-sm transition-all active:translate-x-1 active:translate-y-1 active:shadow-none uppercase">
-                                SEARCH
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -339,42 +335,48 @@ const DiscoveryPage: React.FC = () => {
                                 <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter text-accent-dark">CUISINES</h3>
                                 <div className="flex flex-col gap-3">
                                     {cuisines.slice(0, 5).map((c) => (
-                                        <button
+                                        <motion.button
                                             key={c.name}
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
                                             onClick={() => setSelectedCuisine(c.name)}
-                                            className={`flex items-center gap-4 px-6 py-4 rounded-2xl border-2 border-accent-dark font-black transition-all active:scale-95 ${selectedCuisine === c.name
-                                                    ? 'bg-primary text-accent-dark -translate-y-1 shadow-chunky-sm'
-                                                    : 'bg-white text-accent-dark hover:-translate-y-1 shadow-chunky-sm'
+                                            className={`flex items-center gap-4 px-6 py-4 rounded-2xl border-2 border-accent-dark font-black transition-all ${selectedCuisine === c.name
+                                                ? 'bg-primary text-accent-dark shadow-chunky-sm'
+                                                : 'bg-white text-accent-dark shadow-chunky-sm'
                                                 }`}
                                         >
-                                            <span className="text-2xl">{c.icon}</span>
+                                            <span className="material-symbols-outlined text-2xl">{c.category}</span>
                                             <span>{c.name}</span>
-                                        </button>
+                                        </motion.button>
                                     ))}
 
-                                    <button
+                                    <motion.button
+                                        whileHover={{ x: 5 }}
+                                        whileTap={{ scale: 0.95 }}
                                         onClick={() => setIsCuisineModalOpen(true)}
                                         className="text-sm font-black text-accent-dark/40 hover:text-primary transition-colors flex items-center gap-2 px-2 mt-2 uppercase italic tracking-tighter"
                                     >
                                         <span className="material-symbols-outlined text-xl">add_circle</span>
                                         MORE CUISINES
-                                    </button>
+                                    </motion.button>
                                 </div>
                             </div>
                             <div>
                                 <h3 className="text-xl font-black mb-4 uppercase tracking-tighter text-accent-dark">QUICK SORT</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {['Rating', 'Time', 'Popular'].map((method) => (
-                                        <button
+                                        <motion.button
                                             key={method}
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
                                             onClick={() => setSelectedSort(method)}
-                                            className={`px-6 py-2 rounded-full text-xs font-black uppercase border-2 border-accent-dark transition-all active:scale-95 ${selectedSort === method
-                                                    ? 'bg-primary text-accent-dark shadow-chunky-sm'
-                                                    : 'bg-white text-accent-dark hover:bg-accent-dark/5'
+                                            className={`px-6 py-2 rounded-full text-xs font-black uppercase border-2 border-accent-dark transition-all ${selectedSort === method
+                                                ? 'bg-primary text-accent-dark shadow-chunky-sm'
+                                                : 'bg-white text-accent-dark'
                                                 }`}
                                         >
                                             {method}
-                                        </button>
+                                        </motion.button>
                                     ))}
                                 </div>
                             </div>
@@ -396,8 +398,9 @@ const DiscoveryPage: React.FC = () => {
                                             src={res.image}
                                         />
                                         <div className="absolute top-4 left-4 flex gap-2">
-                                            <div className="bg-primary text-accent-dark px-3 py-1 rounded-full text-xs font-black border-2 border-accent-dark shadow-chunky-sm">
-                                                {res.rating}
+                                            <div className="bg-primary text-accent-dark px-3 py-1 rounded-full text-xs font-black border-2 border-accent-dark shadow-chunky-sm flex items-center gap-1">
+                                                <span className="material-symbols-outlined text-xs">star</span>
+                                                {res.rating.replace('★ ', '')}
                                             </div>
                                             <div className="bg-white text-accent-dark px-3 py-1 rounded-full text-xs font-black border-2 border-accent-dark shadow-chunky-sm">
                                                 {res.time}
@@ -422,12 +425,14 @@ const DiscoveryPage: React.FC = () => {
                         </div>
                         <div className="mt-20 flex flex-col items-center gap-6 w-full">
                             {visibleCount < allRestaurants.length ? (
-                                <button
+                                <motion.button
+                                    whileHover={{ scale: 1.05, backgroundColor: '#f9f506' }}
+                                    whileTap={{ scale: 0.95 }}
                                     onClick={loadMore}
-                                    className="bg-white text-accent-dark px-12 py-5 rounded-2xl font-black text-xl border-2 border-accent-dark shadow-chunky transition-all hover:bg-primary active:translate-x-1 active:translate-y-1 active:shadow-none uppercase"
+                                    className="bg-white text-accent-dark px-12 py-5 rounded-2xl font-black text-xl border-2 border-accent-dark shadow-chunky transition-all uppercase"
                                 >
-                                    Load More Heroes
-                                </button>
+                                    Load More Nibblers
+                                </motion.button>
                             ) : (
                                 <div className="py-10 text-center">
                                     <p className="text-2xl font-black text-accent-dark/30 uppercase italic tracking-tighter">

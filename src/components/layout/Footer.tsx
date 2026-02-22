@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
     return (
@@ -14,12 +15,20 @@ const Footer: React.FC = () => {
                         </div>
                         <p className="text-accent-dark/60 font-medium mb-6">Redefining how you eat, one delivery at a time. The world's first hero-powered delivery platform.</p>
                         <div className="flex gap-4">
-                            <div className="w-10 h-10 rounded-full border-2 border-accent-dark flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <motion.div
+                                whileHover={{ scale: 1.2, backgroundColor: '#f9f506' }}
+                                whileTap={{ scale: 0.8 }}
+                                className="w-10 h-10 rounded-full border-2 border-accent-dark flex items-center justify-center transition-colors cursor-pointer"
+                            >
                                 <span className="material-symbols-outlined text-xl">share</span>
-                            </div>
-                            <div className="w-10 h-10 rounded-full border-2 border-accent-dark flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            </motion.div>
+                            <motion.div
+                                whileHover={{ scale: 1.2, backgroundColor: '#f9f506' }}
+                                whileTap={{ scale: 0.8 }}
+                                className="w-10 h-10 rounded-full border-2 border-accent-dark flex items-center justify-center transition-colors cursor-pointer"
+                            >
                                 <span className="material-symbols-outlined text-xl">public</span>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                     <div>
@@ -43,20 +52,28 @@ const Footer: React.FC = () => {
                     <div>
                         <h4 className="font-black text-xl mb-6">Get the App</h4>
                         <div className="space-y-4">
-                            <div className="bg-accent-dark text-white rounded-xl p-3 border-2 border-accent-dark flex items-center gap-3 cursor-pointer hover:bg-white hover:text-accent-dark transition-all group">
+                            <motion.div
+                                whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: '#1c1c0d' }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-accent-dark text-white rounded-xl p-3 border-2 border-accent-dark flex items-center gap-3 cursor-pointer transition-all group"
+                            >
                                 <span className="material-symbols-outlined text-3xl group-hover:text-accent-dark transition-colors">phone_iphone</span>
                                 <div>
                                     <p className="text-[10px] uppercase font-bold text-white/60 group-hover:text-accent-dark/60 transition-colors">Download on the</p>
                                     <p className="text-sm font-black group-hover:text-accent-dark transition-colors">App Store</p>
                                 </div>
-                            </div>
-                            <div className="bg-accent-dark text-white rounded-xl p-3 border-2 border-accent-dark flex items-center gap-3 cursor-pointer hover:bg-white hover:text-accent-dark transition-all group">
+                            </motion.div>
+                            <motion.div
+                                whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: '#1c1c0d' }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-accent-dark text-white rounded-xl p-3 border-2 border-accent-dark flex items-center gap-3 cursor-pointer transition-all group"
+                            >
                                 <span className="material-symbols-outlined text-3xl group-hover:text-accent-dark transition-colors">shop</span>
                                 <div>
                                     <p className="text-[10px] uppercase font-bold text-white/60 group-hover:text-accent-dark/60 transition-colors">Get it on</p>
                                     <p className="text-sm font-black group-hover:text-accent-dark transition-colors">Google Play</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>

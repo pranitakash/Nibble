@@ -78,7 +78,7 @@ const MenuPage: React.FC = () => {
 
     return (
         <div className="bg-background-light text-accent-dark min-h-screen">
-            <main className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-6 py-10 pt-28">
+            <main className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-6 py-10 pt-40">
                 <div className="flex-1">
                     <div className="mb-12">
                         <div className="flex items-end gap-6 mb-6">

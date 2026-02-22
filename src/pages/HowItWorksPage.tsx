@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const HowItWorksPage: React.FC = () => {
     return (
         <div className="bg-background-light text-accent-dark antialiased overflow-x-hidden font-display">
-            <main className="pt-32 pb-24 px-6 lg:px-20 relative">
+            <main className="pt-0 pb-24 px-6 lg:px-20 relative">
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
                     <span className="material-symbols-outlined absolute top-40 left-10 text-primary text-6xl opacity-40 rotate-12">star</span>
                     <span className="material-symbols-outlined absolute top-80 right-20 text-primary text-4xl opacity-30 -rotate-12">star</span>
@@ -13,7 +13,7 @@ const HowItWorksPage: React.FC = () => {
                     <div className="absolute bottom-1/4 -left-10 w-60 h-1 bg-primary -rotate-12 opacity-20"></div>
                 </div>
 
-                <div className="max-w-7xl mx-auto relative z-10">
+                <div className="max-w-7xl mx-auto relative z-10 pt-32 lg:pt-40">
                     <div className="text-center mb-20">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ const HowItWorksPage: React.FC = () => {
                                 </div>
                             </motion.div>
                             <div className="flex-1 space-y-6">
-                                <h2 className="text-5xl lg:text-6xl font-black leading-none">Pick your Hero meal.</h2>
+                                <h2 className="text-5xl lg:text-6xl font-black leading-none">Pick your favorite meal.</h2>
                                 <p className="text-xl font-bold text-accent-dark/70 leading-relaxed">
                                     Browse through thousands of local favorites. From spicy tacos to gourmet salads, your next craving is just a tap away in our super-fast app.
                                 </p>
@@ -135,9 +135,13 @@ const HowItWorksPage: React.FC = () => {
                                 <p className="text-xl font-bold text-accent-dark/70 leading-relaxed">
                                     Our fleet of hero riders are already on the move. Real-time tracking keeps you in the loop until your food arrives hot and ready at your doorstep.
                                 </p>
-                                <button className="bg-accent-dark text-white px-8 py-4 rounded-full font-black flex items-center gap-3 hover:translate-x-2 transition-transform shadow-chunky-sm">
+                                <motion.button
+                                    whileHover={{ x: 10, scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-accent-dark text-white px-8 py-4 rounded-full font-black flex items-center gap-3 shadow-chunky-sm transition-all"
+                                >
                                     Track Your Order <span className="material-symbols-outlined">map</span>
-                                </button>
+                                </motion.button>
                             </div>
                         </div>
                     </div>
@@ -149,14 +153,22 @@ const HowItWorksPage: React.FC = () => {
                         className="mt-40 bg-primary border-[6px] border-accent-dark rounded-[4rem] p-12 lg:p-20 text-center shadow-chunky relative overflow-hidden"
                     >
                         <div className="relative z-10">
-                            <h3 className="text-5xl lg:text-7xl font-black mb-8">Ready to eat like a Hero?</h3>
+                            <h3 className="text-5xl lg:text-7xl font-black mb-8">Ready to eat with Nibble?</h3>
                             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                                <button className="bg-accent-dark text-white px-12 py-5 rounded-full text-xl font-black shadow-chunky-sm hover:-translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-accent-dark text-white px-12 py-5 rounded-full text-xl font-black shadow-chunky-sm transition-all"
+                                >
                                     Get Started Now
-                                </button>
-                                <button className="bg-white border-4 border-accent-dark px-12 py-5 rounded-full text-xl font-black shadow-chunky-sm hover:-translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
+                                </motion.button>
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-white border-4 border-accent-dark px-12 py-5 rounded-full text-xl font-black shadow-chunky-sm transition-all"
+                                >
                                     View Menu
-                                </button>
+                                </motion.button>
                             </div>
                         </div>
                         <div className="absolute top-0 right-0 w-48 h-48 bg-white/20 rounded-full -mr-24 -mt-24"></div>

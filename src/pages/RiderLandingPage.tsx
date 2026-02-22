@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const RiderLandingPage: React.FC = () => {
     return (
         <div className="bg-background-light text-accent-dark antialiased font-display">
-            <main className="min-h-screen flex flex-col lg:flex-row pt-24">
+            <main className="min-h-screen flex flex-col lg:flex-row">
                 {/* Left Section - Split Background logic handled by parent or inline */}
-                <div className="flex-1 flex items-center px-6 lg:px-20 py-12 bg-primary">
+                <div className="flex-1 flex items-center px-6 lg:px-20 pt-32 pb-12 lg:pt-40 lg:pb-12 bg-primary">
                     <div className="max-w-xl">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -32,15 +33,21 @@ const RiderLandingPage: React.FC = () => {
                             Turn your spare time into extra cash. Whether you're on a bike, scooter, or car, you're the engine that keeps our city fed.
                         </motion.p>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="bg-accent-dark text-white px-10 py-5 rounded-full text-xl font-black shadow-chunky transition-transform hover:-translate-y-1 active:translate-y-0">
-                                Start Your Application
-                            </button>
+                            <Link to="/rider-signup">
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-accent-dark text-white px-10 py-5 rounded-full text-xl font-black shadow-chunky transition-all"
+                                >
+                                    Start Your Application
+                                </motion.button>
+                            </Link>
                         </div>
                     </div>
                 </div>
 
                 {/* Right Section */}
-                <div className="flex-1 relative flex items-center justify-center min-h-[500px] lg:min-h-0 overflow-hidden bg-background-light">
+                <div className="flex-1 relative flex items-center justify-center min-h-[500px] lg:min-h-0 overflow-hidden bg-background-light pt-32 lg:pt-40">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -81,7 +88,7 @@ const RiderLandingPage: React.FC = () => {
             <section className="py-24 px-6 lg:px-20 bg-background-light">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl lg:text-5xl font-black mb-4">Why Ride with FoodieHero?</h2>
+                        <h2 className="text-4xl lg:text-5xl font-black mb-4">Why Ride with Nibble?</h2>
                         <p className="text-xl font-medium text-accent-dark/60">The best perks in the delivery game.</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -140,11 +147,17 @@ const RiderLandingPage: React.FC = () => {
                     <div className="relative z-10">
                         <h2 className="text-4xl lg:text-6xl font-black text-white mb-8">Ready to Hit the Road?</h2>
                         <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed">
-                            Join the community of thousands of riders who choose FoodieHero for its flexibility and top-tier benefits.
+                            Join the community of thousands of riders who choose Nibble for its flexibility and top-tier benefits.
                         </p>
-                        <button className="bg-primary text-accent-dark px-12 py-6 rounded-full text-2xl font-black hover:scale-105 transition-transform shadow-[0_0_40px_rgba(249,245,6,0.3)] border-2 border-accent-dark">
-                            Apply to Ride
-                        </button>
+                        <Link to="/rider-signup">
+                            <motion.button
+                                whileHover={{ scale: 1.1, rotate: -2 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="bg-primary text-accent-dark px-12 py-6 rounded-full text-2xl font-black transition-transform shadow-[0_0_40px_rgba(249,245,6,0.3)] border-2 border-accent-dark"
+                            >
+                                Apply to Ride
+                            </motion.button>
+                        </Link>
                         <p className="mt-8 text-white/40 font-bold">Applications take less than 5 minutes.</p>
                     </div>
                 </motion.div>

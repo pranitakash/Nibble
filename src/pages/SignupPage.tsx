@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const SignupPage: React.FC = () => {
     return (
-        <div className="bg-background-light text-accent-dark antialiased font-display min-h-screen flex flex-col pt-24">
+        <div className="bg-background-light text-accent-dark antialiased font-display min-h-screen flex flex-col">
             <main className="flex-1 flex flex-col lg:flex-row">
                 {/* Left Section - Squad illustration */}
-                <div className="hidden lg:flex flex-1 items-center justify-center p-20 relative overflow-hidden bg-primary px-6 lg:px-20">
+                <div className="hidden lg:flex flex-1 items-start justify-center p-20 pt-32 lg:pt-40 relative overflow-hidden bg-primary px-6 lg:px-20">
                     <div className="max-w-xl relative z-10 text-center">
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
@@ -54,7 +55,7 @@ const SignupPage: React.FC = () => {
                 </div>
 
                 {/* Right Section - Form */}
-                <div className="flex-1 flex items-center justify-center p-6 lg:p-20 bg-background-light">
+                <div className="flex-1 flex items-start justify-center p-6 lg:p-20 pt-32 lg:pt-40 bg-background-light">
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -84,7 +85,7 @@ const SignupPage: React.FC = () => {
                                     <input
                                         className="w-full px-5 py-4 bg-background-light border-2 border-accent-dark rounded-2xl focus:ring-0 focus:border-primary text-accent-dark font-bold placeholder:text-accent-dark/30 transition-all"
                                         id="email"
-                                        placeholder="hero@foodie.com"
+                                        placeholder="hero@nibble.com"
                                         type="email"
                                     />
                                 </div>
@@ -121,9 +122,9 @@ const SignupPage: React.FC = () => {
                                 {[
                                     { icon: 'google', isCustom: true },
                                     { icon: 'phone_iphone', isCustom: false },
-                                    { icon: 'brand_family', isCustom: false },
+                                    { icon: 'person', isCustom: false },
                                 ].map((social, idx) => (
-                                    <button key={idx} className="w-14 h-14 rounded-full border-2 border-accent-dark flex items-center justify-center bg-white hover:bg-primary transition-all shadow-chunky-sm hover:translate-y-1 hover:shadow-none">
+                                    <button key={idx} className="w-14 h-14 rounded-full border-4 border-accent-dark flex items-center justify-center bg-white hover:bg-primary transition-all shadow-chunky hover:translate-y-1 hover:shadow-none">
                                         {social.isCustom ? (
                                             <svg className="w-6 h-6" viewBox="0 0 24 24">
                                                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
@@ -139,7 +140,7 @@ const SignupPage: React.FC = () => {
                             </div>
                             <p className="mt-8 text-center text-sm font-bold text-accent-dark/60">
                                 Already a Hero?
-                                <a className="ml-1 text-accent-dark underline decoration-primary decoration-4 underline-offset-2 hover:text-primary transition-colors font-black" href="#">Log In</a>
+                                <Link className="ml-1 text-accent-dark underline decoration-primary decoration-4 underline-offset-2 hover:text-primary transition-colors font-black" to="/login">Log In</Link>
                             </p>
                         </div>
                     </motion.div>

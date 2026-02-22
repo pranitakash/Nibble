@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const PartnersPage: React.FC = () => {
     return (
         <div className="bg-background-light text-accent-dark antialiased font-display">
-            <section className="pt-32 pb-20 px-6 lg:px-20 bg-primary border-b-4 border-accent-dark relative overflow-hidden">
+            <section className="pt-0 pb-20 px-6 lg:px-20 bg-primary border-b-4 border-accent-dark relative overflow-hidden">
                 <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#1c1c0d 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 pt-32 lg:pt-40">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -16,18 +17,28 @@ const PartnersPage: React.FC = () => {
                             Restaurant Partners
                         </div>
                         <h1 className="text-6xl lg:text-8xl font-black leading-[1] text-accent-dark mb-8">
-                            Scale Your Kitchen <br />with <span className="underline decoration-8 underline-offset-8 decoration-white">FoodieHero</span>
+                            Scale Your Kitchen <br />with <span className="underline decoration-8 underline-offset-8 decoration-white">Nibble</span>
                         </h1>
                         <p className="text-xl lg:text-2xl font-bold text-accent-dark/80 mb-10 leading-relaxed max-w-lg">
                             Reach more hungry customers, streamline your operations, and grow your revenue by 35% in your first quarter.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="bg-accent-dark text-white text-xl font-black px-10 py-6 rounded-2xl shadow-chunky-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
-                                Register Now
-                            </button>
-                            <button className="bg-white text-accent-dark text-xl font-black px-10 py-6 rounded-2xl border-4 border-accent-dark shadow-chunky-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                            <Link to="/partner-signup">
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-accent-dark text-white text-xl font-black px-10 py-6 rounded-2xl shadow-chunky-sm transition-all"
+                                >
+                                    Register Now
+                                </motion.button>
+                            </Link>
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-white text-accent-dark text-xl font-black px-10 py-6 rounded-2xl border-4 border-accent-dark shadow-chunky-sm transition-all"
+                            >
                                 View Demo
-                            </button>
+                            </motion.button>
                         </div>
                     </motion.div>
                     <motion.div
@@ -83,21 +94,29 @@ const PartnersPage: React.FC = () => {
                     <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
                         <div className="max-w-xl">
                             <h2 className="text-5xl font-black mb-6">Partner Success Stories</h2>
-                            <p className="text-xl text-white/60 font-medium">Real kitchens, real growth. See how FoodieHero transformed these businesses.</p>
+                            <p className="text-xl text-white/60 font-medium">Real kitchens, real growth. See how Nibble transformed these businesses.</p>
                         </div>
                         <div className="flex gap-4">
-                            <button className="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center hover:bg-primary hover:text-accent-dark transition-all">
+                            <motion.button
+                                whileHover={{ scale: 1.1, backgroundColor: '#f9f506', color: '#1c1c0d' }}
+                                whileTap={{ scale: 0.9 }}
+                                className="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center transition-all"
+                            >
                                 <span className="material-symbols-outlined">arrow_back</span>
-                            </button>
-                            <button className="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center bg-white text-accent-dark hover:bg-primary transition-all">
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.1, backgroundColor: '#e6df00' }}
+                                whileTap={{ scale: 0.9 }}
+                                className="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center bg-white text-accent-dark transition-all"
+                            >
                                 <span className="material-symbols-outlined">arrow_forward</span>
-                            </button>
+                            </motion.button>
                         </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         {[
-                            { name: 'Noodle House Central', since: '2021', text: '"Switching to FoodieHero was the best decision we made. Our delivery volume doubled in three months, and the analytics dashboard helped us realize our lunch specials were the real winners."', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHnMcd2yuIG2PSN3AHQOh7UjCBAkhf4x5JMLUgMkCc3ClZS1fHy6tAms8T0fzcojrtH-5zGgZ2g9RSjcySKatxxxpW9ufq0uRuBXoXwG814YJa-zNpirXcwVfJvvTVUftwEAOIquNk-6c6wdtTdCMSzeNK8jNm5mbLVX8VjGH295CsqUdAFTdwW3xNrZEXTcP7F-dX6fc95jDa_J_fnnxDTNRo-hY9D2Qvpxu3Y0sI1F6549m_nXsA2cXzgHvhoHeIbks0hD5gF5Q' },
-                            { name: 'The Burger Lab', since: '2022', text: '"The logistics are seamless. We no longer worry about late deliveries or cold food. FoodieHero\'s fleet is professional, fast, and our customers love them."', icon: 'restaurant' },
+                            { name: 'Noodle House Central', since: '2021', text: '"Switching to Nibble was the best decision we made. Our delivery volume doubled in three months, and the analytics dashboard helped us realize our lunch specials were the real winners."', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHnMcd2yuIG2PSN3AHQOh7UjCBAkhf4x5JMLUgMkCc3ClZS1fHy6tAms8T0fzcojrtH-5zGgZ2g9RSjcySKatxxxpW9ufq0uRuBXoXwG814YJa-zNpirXcwVfJvvTVUftwEAOIquNk-6c6wdtTdCMSzeNK8jNm5mbLVX8VjGH295CsqUdAFTdwW3xNrZEXTcP7F-dX6fc95jDa_J_fnnxDTNRo-hY9D2Qvpxu3Y0sI1F6549m_nXsA2cXzgHvhoHeIbks0hD5gF5Q' },
+                            { name: 'The Burger Lab', since: '2022', text: '"The logistics are seamless. We no longer worry about late deliveries or cold food. Nibble\'s fleet is professional, fast, and our customers love them."', icon: 'restaurant' },
                         ].map((story, idx) => (
                             <div key={idx} className="bg-white/5 border-2 border-white/20 rounded-[2.5rem] p-10 relative">
                                 <span className="material-symbols-outlined text-6xl text-primary/40 absolute top-8 right-10">format_quote</span>
@@ -130,12 +149,18 @@ const PartnersPage: React.FC = () => {
                     <div className="relative z-10">
                         <h2 className="text-6xl font-black text-accent-dark mb-8">Ready to Level Up?</h2>
                         <p className="text-2xl font-bold text-accent-dark/70 mb-12 max-w-xl mx-auto">
-                            Join 15,000+ restaurants already thriving on the FoodieHero platform.
+                            Join 15,000+ restaurants already thriving on the Nibble platform.
                         </p>
-                        <button className="group bg-accent-dark text-white text-4xl font-black px-16 py-8 rounded-[2rem] shadow-chunky hover:-translate-y-2 hover:translate-x-2 hover:shadow-none transition-all flex items-center gap-4 mx-auto">
-                            Partner Now
-                            <span className="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">arrow_forward</span>
-                        </button>
+                        <Link to="/partner-signup">
+                            <motion.button
+                                whileHover={{ scale: 1.05, y: -5 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="group bg-accent-dark text-white text-4xl font-black px-16 py-8 rounded-[2rem] shadow-chunky transition-all flex items-center gap-4 mx-auto"
+                            >
+                                Partner Now
+                                <span className="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                            </motion.button>
+                        </Link>
                     </div>
                     <span className="material-symbols-outlined absolute -top-10 -left-10 text-[200px] text-accent-dark/5 rotate-12">restaurant_menu</span>
                     <span className="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] text-accent-dark/5 -rotate-12">shopping_bag</span>
