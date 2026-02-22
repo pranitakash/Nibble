@@ -1,0 +1,130 @@
+.footer {
+    padding: var(--spacing-3xl) var(--spacing-2xl) var(--spacing-lg);
+    background-color: var(--white);
+    border-top: var(--border-width) solid var(--secondary);
+}
+
+.footer__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-3xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.footer__tagline {
+    color: #666;
+    max-width: 300px;
+}
+
+.footer__socials {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.footer__links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-2xl);
+}
+
+.footer__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.footer__column h4 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer__column a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.footer__column a:hover {
+    color: var(--secondary);
+}
+
+.app-badge {
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 10px 16px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.app-badge:hover {
+    transform: scale(1.02);
+}
+
+.app-badge__icon {
+    font-size: 24px;
+}
+
+.app-badge__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.app-badge__text .tiny {
+    font-size: 10px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.footer__bottom {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    font-size: 14px;
+}
+
+.footer__bottom-links {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.secondary-bg {
+    background-color: var(--secondary);
+}
+
+.text-white {
+    color: var(--white);
+}

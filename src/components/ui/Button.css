@@ -1,0 +1,64 @@
+.hero-button {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: var(--border-width) solid var(--secondary);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-hard);
+    transition: all 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.hero-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000000;
+}
+
+.hero-button--primary {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+.hero-button--primary:hover {
+    background-color: #f7e400;
+    box-shadow: var(--shadow-hard-hover);
+    transform: translate(-1px, -1px);
+}
+
+.hero-button--secondary {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.hero-button--outline {
+    background-color: var(--white);
+    color: var(--secondary);
+}
+
+.hero-button--ghost {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.hero-button--sm {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.hero-button--md {
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+.hero-button--lg {
+    padding: 16px 32px;
+    font-size: 18px;
+}
+
+.hero-button--full-width {
+    width: 100%;
+}

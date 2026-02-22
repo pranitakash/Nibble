@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f9f506;
+  --color-background-light: #fcfcf8;
+  --color-background-dark: #1c1c0d;
+  --color-accent-dark: #1c1c0d;
+  --color-accent-cream: #fffdf0;
+
+  --font-display: "Plus Jakarta Sans", sans-serif;
+
+  --radius-DEFAULT: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+
+  --shadow-chunky: 8px 8px 0px 0px #1c1c0d;
+  --shadow-chunky-sm: 4px 4px 0px 0px #1c1c0d;
+}
+
+:root {
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}

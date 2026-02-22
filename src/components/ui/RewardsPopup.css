@@ -1,0 +1,144 @@
+/* RewardsPopup.css */
+
+.rewards-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: rgba(248, 248, 245, 0.85);
+    backdrop-filter: blur(12px);
+}
+
+.rewards-modal {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border: 4px solid #1c1c0d;
+    border-radius: 2rem;
+    padding: 3rem;
+    box-shadow: 12px 12px 0px 0px #1c1c0d;
+    text-align: center;
+}
+
+.rewards-title {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #1c1c0d;
+    text-transform: uppercase;
+    transform: rotate(-1deg);
+    margin-bottom: 2rem;
+}
+
+.title-underline {
+    height: 1rem;
+    width: 80%;
+    margin: -1.5rem auto 0;
+    background-color: #f9f506;
+    transform: rotate(1deg);
+    opacity: 0.8;
+}
+
+.reward-image-container {
+    position: relative;
+    width: 280px;
+    aspect-ratio: 1;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reward-glow {
+    position: absolute;
+    inset: -10%;
+    background-color: rgba(249, 245, 6, 0.15);
+    border: 4px dashed #f9f506;
+    border-radius: 50%;
+}
+
+.reward-illustration {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBoOkDm7MfUdQ5DWY9XH8aIdBoYb-U0rR3UQ8jDyRB5x4eGYi8-IEObQcOjC0YjSSksRDQx_V56Ru5ACCeguNqJ1JuFKcnLuINuNZeMdviv24SEVYnJWUP_Rxy5VggixGd1IgeCiM9Z_fP8xtJ_QHGL2GwyfpbgDsfLqYfkneAPhxMhVojqKaZbPKhZUyv0-pV3ffdW9J-ZWI9iz-9a4IgammU8XxUjIQhE_t85CS08ovSrLIwDPLZ6b-JHyRf14ukDRwMs_s1lv2U');
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #1c1c0d;
+    border-radius: 2.5rem;
+}
+
+.promo-badge {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background-color: #f9f506;
+    border: 3px solid #1c1c0d;
+    border-radius: 50%;
+    padding: 0.75rem;
+    box-shadow: 4px 4px 0px 0px #1c1c0d;
+    z-index: 20;
+}
+
+.promo-code-box {
+    background-color: rgba(249, 245, 6, 0.1);
+    border: 4px solid #1c1c0d;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.promo-label {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1c1c0d;
+    color: #fff;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.promo-code {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    color: #1c1c0d;
+}
+
+.claim-btn {
+    width: 100%;
+    height: 4.5rem;
+    background-color: #f9f506;
+    border: 4px solid #1c1c0d;
+    border-radius: 9999px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    box-shadow: 6px 6px 0px 0px #1c1c0d;
+    transition: all 0.2s;
+}
+
+.claim-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px 0px #1c1c0d;
+}
+
+.claim-btn:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px 0px #1c1c0d;
+}

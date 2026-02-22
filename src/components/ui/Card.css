@@ -1,0 +1,29 @@
+.hero-card {
+    background-color: var(--white);
+    border: var(--border-width) solid var(--secondary);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-hard);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.hero-card--padding-sm {
+    padding: var(--spacing-sm);
+}
+
+.hero-card--padding-md {
+    padding: var(--spacing-md);
+}
+
+.hero-card--padding-lg {
+    padding: var(--spacing-lg);
+}
+
+.hero-card--padding-none {
+    padding: 0;
+}
+
+.hero-card--hoverable:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0px #000000;
+}

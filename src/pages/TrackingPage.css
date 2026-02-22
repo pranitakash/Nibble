@@ -1,0 +1,288 @@
+.tracking-page {
+    position: relative;
+    min-height: calc(100vh - 80px);
+    background: #E5E7EB;
+    overflow: hidden;
+}
+
+.tracking-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.grid-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(#999 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+}
+
+.road-v {
+    position: absolute;
+    left: 50%;
+    width: 120px;
+    height: 100%;
+    background: #D1D5DB;
+    transform: translateX(-50%) rotate(10deg);
+}
+
+.road-h {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 120px;
+    background: #D1D5DB;
+    transform: translateY(-50%) rotate(-5deg);
+}
+
+.road-diag {
+    position: absolute;
+    width: 120px;
+    height: 150%;
+    background: #D1D5DB;
+    top: -25%;
+    left: 30%;
+    transform: rotate(45deg);
+}
+
+.map-marker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    background: white;
+}
+
+.marker-label {
+    position: absolute;
+    bottom: -10px;
+    width: 3px;
+    height: 15px;
+    background: var(--secondary);
+}
+
+.map-marker.rider {
+    z-index: 10;
+}
+
+.tracking-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    display: grid;
+    grid-template-columns: 400px 1fr 380px;
+    gap: var(--spacing-2xl);
+    position: relative;
+    z-index: 20;
+}
+
+.tracking-left {
+    grid-column: 1;
+}
+
+.tracking-right {
+    grid-column: 3;
+}
+
+.status-card {
+    border-radius: var(--border-radius-lg);
+}
+
+.status-header {
+    padding: var(--spacing-md) var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.eta-tag {
+    background: #D4AF37;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: var(--white);
+}
+
+.status-content {
+    padding: var(--spacing-xl);
+    background: #fffdf8;
+}
+
+.rider-info-row {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.rider-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.rider-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.status-text h3 {
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.status-text p {
+    color: #666;
+    font-weight: 700;
+}
+
+.progress-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.badge-mini {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-weight: 800;
+}
+
+.percentage {
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.progress-bar-container {
+    height: 16px;
+    background: #eee;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.milestones {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.milestone {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    color: #ccc;
+    font-weight: 700;
+}
+
+.milestone.completed {
+    color: #999;
+}
+
+.milestone.active {
+    color: var(--secondary);
+}
+
+.milestone-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+}
+
+.milestone-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.milestone-dot::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--secondary);
+    border-radius: 50%;
+}
+
+.status-actions {
+    text-align: center;
+}
+
+.contact-btn {
+    margin-bottom: var(--spacing-md);
+}
+
+.help-link {
+    font-size: 12px;
+    font-weight: 800;
+    color: #999;
+    text-decoration: none;
+}
+
+/* Order Summary */
+.order-summary-card h3 {
+    font-size: 24px;
+    margin-bottom: var(--spacing-xl);
+}
+
+.summary-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: #2D3748;
+}
+
+.summary-total {
+    border-top: 3px solid var(--secondary);
+    padding-top: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-total span {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.total-val {
+    font-size: 32px !important;
+}

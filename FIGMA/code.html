@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FoodieHero | Fastest Food Delivery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9f506",
+                        "background-light": "#fcfcf8",
+                        "background-dark": "#1c1c0d",
+                        "accent-dark": "#1c1c0d",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "chunky": "8px 8px 0px 0px #1c1c0d",
+                        "chunky-sm": "4px 4px 0px 0px #1c1c0d",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .bg-split {
+            background: linear-gradient(90deg, #f9f506 50%, #fcfcf8 50%);
+        }
+        @media (max-width: 1024px) {
+            .bg-split {
+                background: #f9f506;
+            }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+    </style>
+</head>
+<body class="bg-background-light text-accent-dark antialiased">
+<!-- Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 lg:px-12">
+<nav class="max-w-7xl mx-auto flex items-center justify-between bg-white/80 backdrop-blur-md border-2 border-accent-dark rounded-full px-6 py-3 shadow-chunky-sm">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1 rounded-lg border border-accent-dark">
+<span class="material-symbols-outlined text-accent-dark font-bold">fastfood</span>
+</div>
+<span class="text-xl font-black tracking-tight text-accent-dark">FoodieHero</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-bold hover:text-primary transition-colors" href="#">Explore</a>
+<a class="text-sm font-bold hover:text-primary transition-colors" href="#">Partners</a>
+<a class="text-sm font-bold hover:text-primary transition-colors" href="#">Riders</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block text-sm font-bold px-4 py-2">Log In</button>
+<button class="bg-primary border-2 border-accent-dark shadow-chunky-sm px-6 py-2 rounded-full text-sm font-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                    Sign Up
+                </button>
+</div>
+</nav>
+</header>
+<!-- Main Hero Section -->
+<main class="min-h-screen flex flex-col lg:flex-row bg-split pt-24">
+<!-- Left Side: Content -->
+<div class="flex-1 flex items-center px-6 lg:px-20 py-12">
+<div class="max-w-xl">
+<div class="inline-block bg-accent-dark text-primary px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-6">
+                    New: 15-Min Delivery in NYC
+                </div>
+<h1 class="text-5xl lg:text-7xl font-black leading-[1.1] text-accent-dark mb-8">
+                    Fastest Food <span class="bg-white px-2">Delivery.</span> Easy Pickup.
+                </h1>
+<p class="text-lg lg:text-xl font-medium text-accent-dark/80 mb-10 leading-relaxed">
+                    Your favorite meals from local heroes, delivered to your door in a flash. No hidden fees, just great food.
+                </p>
+<!-- Chunky Search Bar -->
+<div class="relative group">
+<div class="flex flex-col sm:flex-row items-stretch gap-0 bg-white border-4 border-accent-dark rounded-2xl sm:rounded-full overflow-hidden shadow-chunky transition-transform group-hover:-translate-y-1">
+<div class="flex items-center px-6 py-4 bg-white border-b-2 sm:border-b-0 sm:border-r-2 border-accent-dark/10 flex-1">
+<span class="material-symbols-outlined text-accent-dark/40 mr-3">location_on</span>
+<input class="w-full border-none focus:ring-0 text-accent-dark font-bold placeholder:text-accent-dark/30 bg-transparent" placeholder="Enter delivery address" type="text"/>
+</div>
+<button class="bg-primary px-8 py-4 sm:py-2 text-accent-dark font-black text-lg hover:bg-yellow-400 transition-colors border-t-4 sm:border-t-0 sm:border-l-4 border-accent-dark">
+                            Find Food
+                        </button>
+</div>
+</div>
+<div class="mt-12 flex flex-wrap gap-8 items-center">
+<div class="flex flex-col">
+<span class="text-3xl font-black">10k+</span>
+<span class="text-sm font-bold text-accent-dark/60 uppercase">Restaurants</span>
+</div>
+<div class="h-10 w-px bg-accent-dark/10"></div>
+<div class="flex flex-col">
+<span class="text-3xl font-black">20min</span>
+<span class="text-sm font-bold text-accent-dark/60 uppercase">Avg Delivery</span>
+</div>
+<div class="h-10 w-px bg-accent-dark/10"></div>
+<div class="flex flex-col">
+<span class="text-3xl font-black">4.9/5</span>
+<span class="text-sm font-bold text-accent-dark/60 uppercase">App Rating</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Mascot and Badges -->
+<div class="flex-1 relative flex items-center justify-center min-h-[500px] lg:min-h-0 overflow-hidden">
+<!-- Floating Elements Background Decoration -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-20 right-20 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="absolute bottom-20 left-20 w-40 h-40 bg-accent-dark/5 rounded-full blur-2xl"></div>
+</div>
+<!-- Mascot Container -->
+<div class="relative z-10 floating">
+<div class="w-72 h-72 lg:w-96 lg:h-96 rounded-full border-8 border-accent-dark bg-primary flex items-center justify-center shadow-chunky overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="3D style delicious burger with floating ingredients" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTvQpV9EXMZPoDOu076LqQ6zQtFRYxuO8IEd0JYqDsrmcibI--k7qhUi4zpY_nKhFEde8j8wDBHNiNK9U6zEtI7I7G_Cd_ccxBq94ifV-84V5T4bD_Vhy8DcJVX6vL1kP5MXQoz9ghJ3fRoHGy8ACOWybr3zMsuCUEzELZJOEm3vPfpsh4XNMKzcyrt8HP8sVktJ6Jk2tKRt7Nb6UrhcyZHzSNhTyqWCmCyjtvCiRfwdgeq32FFPNmH43iaGQBMysFPqzm7_H5Dp4"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-accent-dark/20 to-transparent"></div>
+</div>
+<!-- Floating Labels -->
+<div class="absolute -top-6 -right-12 bg-white border-2 border-accent-dark rounded-2xl px-4 py-2 shadow-chunky-sm rotate-12 flex items-center gap-2">
+<span class="material-symbols-outlined text-red-500">favorite</span>
+<span class="font-black text-sm">Best Burger 2024</span>
+</div>
+<div class="absolute bottom-10 -left-16 bg-white border-2 border-accent-dark rounded-2xl px-4 py-2 shadow-chunky-sm -rotate-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-500">eco</span>
+<span class="font-black text-sm">Eco Packaging</span>
+</div>
+</div>
+<!-- Secondary Mascot (Fries) -->
+<div class="absolute bottom-20 right-10 lg:right-24 floating" style="animation-delay: -2s;">
+<div class="w-32 h-32 lg:w-48 lg:h-48 rounded-3xl border-4 border-accent-dark bg-white overflow-hidden shadow-chunky rotate-12">
+<img class="w-full h-full object-cover" data-alt="Crispy golden french fries in a red bucket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHnMcd2yuIG2PSN3AHQOh7UjCBAkhf4x5JMLUgMkCc3ClZS1fHy6tAms8T0fzcojrtH-5zGgZ2g9RSjcySKatxxxpW9ufq0uRuBXoXwG814YJa-zNpirXcwVfJvvTVUftwEAOIquNk-6c6wdtTdCMSzeNK8jNm5mbLVX8VjGH295CsqUdAFTdwW3xNrZEXTcP7F-dX6fc95jDa_J_fnnxDTNRo-hY9D2Qvpxu3Y0sI1F6549m_nXsA2cXzgHvhoHeIbks0hD5gF5Q"/>
+</div>
+</div>
+</div>
+</main>
+<!-- Popular Categories -->
+<section class="py-20 px-6 lg:px-20 bg-background-light">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<h2 class="text-4xl font-black text-accent-dark mb-4">Craving Something?</h2>
+<p class="text-lg font-medium text-accent-dark/60">Explore the best local spots by category</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center hover:bg-primary transition-colors shadow-chunky-sm active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 rounded-full border-2 border-accent-dark flex items-center justify-center bg-primary hover:bg-yellow-400 transition-colors shadow-chunky-sm active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<!-- Burger -->
+<div class="group cursor-pointer">
+<div class="bg-primary/10 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-primary group-hover:shadow-chunky">
+<div class="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+<span class="material-symbols-outlined text-4xl">lunch_dining</span>
+</div>
+<p class="text-center font-black text-accent-dark">Burgers</p>
+</div>
+</div>
+<!-- Pizza -->
+<div class="group cursor-pointer">
+<div class="bg-orange-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-400 group-hover:shadow-chunky">
+<div class="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+<span class="material-symbols-outlined text-4xl">local_pizza</span>
+</div>
+<p class="text-center font-black text-accent-dark">Pizza</p>
+</div>
+</div>
+<!-- Sushi -->
+<div class="group cursor-pointer">
+<div class="bg-red-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-400 group-hover:shadow-chunky">
+<div class="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+<span class="material-symbols-outlined text-4xl">set_meal</span>
+</div>
+<p class="text-center font-black text-accent-dark">Sushi</p>
+</div>
+</div>
+<!-- Desserts -->
+<div class="group cursor-pointer">
+<div class="bg-pink-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-pink-400 group-hover:shadow-chunky">
+<div class="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+<span class="material-symbols-outlined text-4xl">icecream</span>
+</div>
+<p class="text-center font-black text-accent-dark">Desserts</p>
+</div>
+</div>
+<!-- Healthy -->
+<div class="group cursor-pointer">
+<div class="bg-green-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-green-400 group-hover:shadow-chunky">
+<div class="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+<span class="material-symbols-outlined text-4xl">potted_plant</span>
+</div>
+<p class="text-center font-black text-accent-dark">Healthy</p>
+</div>
+</div>
+<!-- Drinks -->
+<div class="group cursor-pointer">
+<div class="bg-blue-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-blue-400 group-hover:shadow-chunky">
+<div class="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+<span class="material-symbols-outlined text-4xl">local_bar</span>
+</div>
+<p class="text-center font-black text-accent-dark">Drinks</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action for Partners -->
+<section class="px-6 lg:px-20 pb-20">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-accent-dark rounded-3xl p-10 text-white relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="text-4xl font-black mb-4">Be a Hero Rider</h3>
+<p class="text-lg text-white/70 mb-8 max-w-sm leading-relaxed">Earn extra cash on your own schedule. Join our fleet of delivery heroes today.</p>
+<button class="bg-primary text-accent-dark px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform border-2 border-transparent hover:border-white">
+                        Join the Squad
+                    </button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] text-white/10 rotate-12 group-hover:rotate-0 transition-transform duration-700">pedal_bike</span>
+</div>
+<div class="bg-white border-4 border-accent-dark rounded-3xl p-10 text-accent-dark shadow-chunky relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="text-4xl font-black mb-4">Boost Sales</h3>
+<p class="text-lg text-accent-dark/60 mb-8 max-w-sm leading-relaxed">Partner with FoodieHero and watch your orders skyrocket. We handle the logistics.</p>
+<button class="bg-accent-dark text-white px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform shadow-chunky-sm">
+                        Add Restaurant
+                    </button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] text-accent-dark/5 -rotate-12 group-hover:rotate-0 transition-transform duration-700">storefront</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t-4 border-accent-dark pt-20 pb-10 px-6 lg:px-20">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+<div class="md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="bg-primary p-1 rounded-lg border border-accent-dark">
+<span class="material-symbols-outlined text-accent-dark font-bold">fastfood</span>
+</div>
+<span class="text-2xl font-black tracking-tight text-accent-dark">FoodieHero</span>
+</div>
+<p class="text-accent-dark/60 font-medium mb-6">Redefining how you eat, one delivery at a time. The world's first hero-powered delivery platform.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full border-2 border-accent-dark flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-xl">share</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-accent-dark flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-xl">public</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-black text-xl mb-6">Quick Links</h4>
+<ul class="space-y-4 font-bold text-accent-dark/60">
+<li><a class="hover:text-accent-dark transition-colors" href="#">Find Restaurants</a></li>
+<li><a class="hover:text-accent-dark transition-colors" href="#">Become a Rider</a></li>
+<li><a class="hover:text-accent-dark transition-colors" href="#">Partner With Us</a></li>
+<li><a class="hover:text-accent-dark transition-colors" href="#">FoodieHero For Business</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-xl mb-6">Support</h4>
+<ul class="space-y-4 font-bold text-accent-dark/60">
+<li><a class="hover:text-accent-dark transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-accent-dark transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-accent-dark transition-colors" href="#">Refund Policy</a></li>
+<li><a class="hover:text-accent-dark transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-xl mb-6">Get the App</h4>
+<div class="space-y-4">
+<div class="bg-accent-dark text-white rounded-xl p-3 border-2 border-accent-dark flex items-center gap-3 cursor-pointer hover:bg-white hover:text-accent-dark transition-all">
+<span class="material-symbols-outlined text-3xl">phone_iphone</span>
+<div>
+<p class="text-[10px] uppercase font-bold text-white/60">Download on the</p>
+<p class="text-sm font-black">App Store</p>
+</div>
+</div>
+<div class="bg-accent-dark text-white rounded-xl p-3 border-2 border-accent-dark flex items-center gap-3 cursor-pointer hover:bg-white hover:text-accent-dark transition-all">
+<span class="material-symbols-outlined text-3xl">shop</span>
+<div>
+<p class="text-[10px] uppercase font-bold text-white/60">Get it on</p>
+<p class="text-sm font-black">Google Play</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t-2 border-accent-dark/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-accent-dark/40 font-bold text-sm">© 2024 FoodieHero Inc. All rights reserved.</p>
+<div class="flex gap-8 text-sm font-bold text-accent-dark/40">
+<a class="hover:text-accent-dark" href="#">Privacy</a>
+<a class="hover:text-accent-dark" href="#">Cookies</a>
+<a class="hover:text-accent-dark" href="#">Security</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

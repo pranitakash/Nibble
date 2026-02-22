@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FoodieHero Restaurant Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9f506",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#23220f",
+                        "accent-cream": "#fffdf0",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'chunky': '8px 8px 0px 0px rgba(0, 0, 0, 1)',
+                        'chunky-sm': '4px 4px 0px 0px rgba(0, 0, 0, 1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        .chunky-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+        }
+        .sidebar-sticky {
+            position: sticky;
+            top: 120px;
+            height: calc(100vh - 140px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 overflow-x-hidden">
+<div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+<header class="flex items-center justify-between w-full max-w-7xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full px-8 py-3 border-2 border-slate-900 shadow-chunky-sm">
+<div class="flex items-center gap-2">
+<div class="size-8 bg-primary rounded-full flex items-center justify-center border-2 border-slate-900">
+<span class="material-symbols-outlined text-slate-900 text-xl font-bold">bolt</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold tracking-tight underline decoration-primary decoration-4">FoodieHero</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-900 dark:text-white text-sm font-bold border-b-2 border-primary" href="#">Restaurants</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-bold hover:text-slate-900 transition-colors" href="#">Riders</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-bold hover:text-slate-900 transition-colors" href="#">Offers</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-2 bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-full border border-slate-900/10">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs font-bold">Central Park, NY</span>
+</div>
+<button class="bg-primary px-6 py-2 rounded-full font-bold text-sm text-slate-900 border-2 border-slate-900 shadow-chunky-sm chunky-button">Account</button>
+</div>
+</header>
+</div>
+<section class="pt-32 pb-12 flex flex-col md:flex-row">
+<div class="w-full md:w-1/2 bg-primary px-8 py-12 flex flex-col items-end">
+<div class="w-full max-w-xl">
+<h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 uppercase italic">Hungry?</h1>
+<p class="text-lg font-bold text-slate-800">Find the best local heroes near you.</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 bg-accent-cream dark:bg-slate-900 px-8 py-12">
+<div class="w-full max-w-xl">
+<div class="bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-2xl p-2 shadow-chunky flex items-center gap-2">
+<div class="pl-4 text-slate-400">
+<span class="material-symbols-outlined text-3xl">search</span>
+</div>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-xl font-bold text-slate-900 dark:text-white placeholder:text-slate-400" placeholder="Search for sushi, burgers..." type="text"/>
+<button class="bg-primary hover:bg-[#ece805] text-slate-900 px-10 py-4 rounded-xl font-black text-xl border-2 border-slate-900 shadow-chunky-sm transition-all chunky-button uppercase">
+                        SEARCH
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<main class="max-w-7xl mx-auto px-4 md:px-8 pb-32">
+<div class="flex flex-col md:flex-row gap-12">
+<aside class="w-full md:w-64 flex-shrink-0">
+<div class="sidebar-sticky flex flex-col gap-8">
+<div>
+<h3 class="text-2xl font-black mb-6 uppercase tracking-tighter">Cuisines</h3>
+<div class="flex flex-col gap-4">
+<button class="flex items-center gap-4 bg-primary px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 group hover:-translate-y-1 transition-transform">
+<span class="text-2xl">🍕</span>
+<span>Pizza</span>
+</button>
+<button class="flex items-center gap-4 bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 dark:text-white group hover:-translate-y-1 transition-transform">
+<span class="text-2xl">🍔</span>
+<span>Burgers</span>
+</button>
+<button class="flex items-center gap-4 bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 dark:text-white group hover:-translate-y-1 transition-transform">
+<span class="text-2xl">🍣</span>
+<span>Sushi</span>
+</button>
+<button class="flex items-center gap-4 bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 dark:text-white group hover:-translate-y-1 transition-transform">
+<span class="text-2xl">🌮</span>
+<span>Tacos</span>
+</button>
+<button class="flex items-center gap-4 bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl border-2 border-slate-900 shadow-chunky-sm font-black text-slate-900 dark:text-white group hover:-translate-y-1 transition-transform">
+<span class="text-2xl">🥗</span>
+<span>Salads</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-black mb-4 uppercase tracking-tighter">Quick Sort</h3>
+<div class="flex flex-wrap gap-2">
+<button class="bg-slate-200 dark:bg-slate-700 px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-slate-900">Rating</button>
+<button class="bg-white dark:bg-slate-800 px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-slate-900">Time</button>
+<button class="bg-white dark:bg-slate-800 px-4 py-2 rounded-full text-xs font-black uppercase border-2 border-slate-900">Popular</button>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-3xl md:text-4xl font-black tracking-tighter">POPULAR NEARBY <span class="text-primary bg-slate-900 px-3 rounded-lg">(124)</span></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<div class="group bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-[2rem] overflow-hidden shadow-chunky hover:-translate-y-2 transition-transform cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img alt="Delicious Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcjjvDIiZaTPVxRF-xI-ZUpAt4VvnqWYBwcwkhP4Gr9-b2pVbLp9YDBNCWnKhz3BPkFhriUR_amPAxIkhSTG4khN9S-eMJtGzxEsglJGgkASDdGxyisPs8P_QLaX7CbqaTpY_H0PxaO-eE7OsqLbHx4UCksM6NJKkb1rFrt232KgdzZJ2NUXkVN0Rx-yFEC8xF5Vjh529fk1CDfecWO_Er3zRXKMyjXmk-p2hswRL5TKz55MsqQBEbd4_gk_IBAgacSgZ6cLnyF74"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<div class="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    ★ 4.9
+                                </div>
+<div class="bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    15-25 min
+                                </div>
+</div>
+<div class="absolute bottom-4 right-4 bg-slate-900 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                $2.99 Delivery
+                            </div>
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-black mb-1 group-hover:text-primary transition-colors">Burger Hero HQ</h3>
+<p class="text-slate-500 dark:text-slate-400 font-bold text-sm mb-4">Gourmet Burgers • American • Fries</p>
+<div class="flex justify-between items-center pt-4 border-t-2 border-slate-100 dark:border-slate-700">
+<span class="bg-accent-cream dark:bg-slate-700 text-slate-900 dark:text-white px-4 py-1 rounded-full text-xs font-bold border border-slate-900/10">Free item with $20+</span>
+<span class="material-symbols-outlined text-primary font-black">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-[2rem] overflow-hidden shadow-chunky hover:-translate-y-2 transition-transform cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img alt="Fresh Sushi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDazYi7jqkVBdCMrrc9cMkSqTcBr8NC4pLyFfzpHzfDIFAfP0pvAOAx1e99YXpkkgqWYKQ2a5-WUL1BJnpwXZxuUDdsmIWKCksKnReGbw9_v8B89RVWfpSccrmqPp1PRRiQsrDRO2IQGPFUlkb2NKBxFqTwWiuT0BT02My8uvwLu979-Jz1b4gADYOkU-8olkpu_7Qx9JzGqEBk92TN_u5OtITF9D0jzKCGV5cqoCOubpMCbfNZT44FG7CnTE1TAaa53Z7DdXjLrXY"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<div class="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    ★ 4.7
+                                </div>
+<div class="bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    20-35 min
+                                </div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-black mb-1 group-hover:text-primary transition-colors">Sushi Blade</h3>
+<p class="text-slate-500 dark:text-slate-400 font-bold text-sm mb-4">Sushi • Japanese • Healthy</p>
+<div class="flex justify-between items-center pt-4 border-t-2 border-slate-100 dark:border-slate-700">
+<span class="bg-accent-cream dark:bg-slate-700 text-slate-900 dark:text-white px-4 py-1 rounded-full text-xs font-bold border border-slate-900/10">Popular Choice</span>
+<span class="material-symbols-outlined text-primary font-black">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-[2rem] overflow-hidden shadow-chunky hover:-translate-y-2 transition-transform cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img alt="Pizza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANJtqILuwYrPyIPvsRNCzTXT_iok9FK_JbcdDOzWzeq2oETu0-RCWLxkYDQiLiwId2Y-4TQXzGxLEqlEkApJXErVKmVpxyoJTCEU2fpW9N7FVibh5Dx3gxZ7PkP-W7DRlgZui-JFs8hER8ZErnwIF1wpNLR_aEilhmthw_0p6I8ZranZMAb2Khf5G_bZiWx2IPtkqio3HZtvLWRT_ZTPH2vtesSwJ0nx6FP9eN1noWZ-oZDv0bZeaAL8rfEL5R68R1xLbhAwmRs0M"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<div class="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    ★ 4.8
+                                </div>
+<div class="bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    10-20 min
+                                </div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-black mb-1 group-hover:text-primary transition-colors">Neon Pizza</h3>
+<p class="text-slate-500 dark:text-slate-400 font-bold text-sm mb-4">Pizza • Italian • Late Night</p>
+<div class="flex justify-between items-center pt-4 border-t-2 border-slate-100 dark:border-slate-700">
+<span class="bg-accent-cream dark:bg-slate-700 text-slate-900 dark:text-white px-4 py-1 rounded-full text-xs font-bold border border-slate-900/10">New Arrival</span>
+<span class="material-symbols-outlined text-primary font-black">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-[2rem] overflow-hidden shadow-chunky hover:-translate-y-2 transition-transform cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img alt="Tacos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvQhx9Hl8L5b3ubIYKYHHRn-NFK3Tv8BEoNU9NYFQ0s584CuiA98RhtLdwIJTBVPSJ5PwU2OuwbM54DLf8j8xnNikSxlRkP86MF1-k8TdyT8nEzCZj-1LhWn12q5WeRMKlupPWeBWuwC3Iy8e-qax4ALJv7Kf5qUGsAXrE6Eveo-lqxa5fade9NmLEUCixImFtjSy6kcQpwBJlUXWMBfdwxSvoWZhJAoCLl_9GBrzkql74s8fkHKqxVwzSRrty1vlv6DVWeZfsYyY"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<div class="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    ★ 4.5
+                                </div>
+<div class="bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    15-25 min
+                                </div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-black mb-1 group-hover:text-primary transition-colors">Taco Thunder</h3>
+<p class="text-slate-500 dark:text-slate-400 font-bold text-sm mb-4">Tacos • Mexican • Street Food</p>
+<div class="flex justify-between items-center pt-4 border-t-2 border-slate-100 dark:border-slate-700">
+<span class="bg-accent-cream dark:bg-slate-700 text-slate-900 dark:text-white px-4 py-1 rounded-full text-xs font-bold border border-slate-900/10">Under $10</span>
+<span class="material-symbols-outlined text-primary font-black">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-[2rem] overflow-hidden shadow-chunky hover:-translate-y-2 transition-transform cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img alt="Pasta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtMB-opmau9jZEe8QIkT_TABKkw2NwQgyxeEH-pdZqpD_1IP5d6FLJRCU_1_xYFADuYmnklf3GhhImkxux477Gj_AwplxHbWkSK83DBi5nX-2qWg67tWKKg9-Yw0RdPFPbIIm56xWCexcP4Ixx3J1xuGVcW0qUprCnuf6xTtYoa7zjH5HC2Xm2JT6nno58vYV6cMykExxwkDElXaMBaG7ssjev24XmHoubLAe2IMOV_nU6vrS_0ZQTjub1LYwMjDbui3E9sNqqDyw"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<div class="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    ★ 4.6
+                                </div>
+<div class="bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    25-40 min
+                                </div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-black mb-1 group-hover:text-primary transition-colors">Pasta Prime</h3>
+<p class="text-slate-500 dark:text-slate-400 font-bold text-sm mb-4">Pasta • Italian • Family Style</p>
+<div class="flex justify-between items-center pt-4 border-t-2 border-slate-100 dark:border-slate-700">
+<span class="bg-accent-cream dark:bg-slate-700 text-slate-900 dark:text-white px-4 py-1 rounded-full text-xs font-bold border border-slate-900/10">Bestseller</span>
+<span class="material-symbols-outlined text-primary font-black">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-[2rem] overflow-hidden shadow-chunky hover:-translate-y-2 transition-transform cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img alt="Salad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKic_GJHO8qwTOdcDMuoF7Wucc5qnvEeedRqOeRMmdHs7s8_Il2T84tRAJFFziHHIu66ZG2yivR87YcbT_oGEJBgTtrUjMou1s57Fjk1I0kZxYWp0DXEsBEGzRC52JU76_xqgwTGndSv9yy2ywErEbkbWspS1egOF6bdiAAfsBMGcixHeKtSaF1D6FMDhAywg9LW79z94fRY1Aadnsa1cqtxnmPywlYdQaaB-R9MfjQwQssQfg4W3m1un4C7M11_RkikWJ4tBsddg"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<div class="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    ★ 4.9
+                                </div>
+<div class="bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-black border-2 border-slate-900 shadow-chunky-sm">
+                                    10-15 min
+                                </div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-black mb-1 group-hover:text-primary transition-colors">Green Rocket</h3>
+<p class="text-slate-500 dark:text-slate-400 font-bold text-sm mb-4">Salads • Bowls • Vegan</p>
+<div class="flex justify-between items-center pt-4 border-t-2 border-slate-100 dark:border-slate-700">
+<span class="bg-accent-cream dark:bg-slate-700 text-slate-900 dark:text-white px-4 py-1 rounded-full text-xs font-bold border border-slate-900/10">Super Food</span>
+<span class="material-symbols-outlined text-primary font-black">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 flex justify-center">
+<button class="bg-slate-900 text-white px-12 py-5 rounded-2xl font-black text-xl border-2 border-slate-900 shadow-chunky transition-all hover:bg-slate-800 active:translate-x-1 active:translate-y-1 active:shadow-none">
+                        LOAD MORE HEROES
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-background-light dark:bg-slate-900 pt-20 pb-10 px-8 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-10 mb-20">
+<div class="flex items-center gap-2">
+<div class="size-10 bg-primary rounded-full flex items-center justify-center border-2 border-slate-900">
+<span class="material-symbols-outlined text-slate-900 text-2xl font-bold">bolt</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-2xl font-black tracking-tight">FoodieHero</h2>
+</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="text-slate-500 dark:text-slate-400 font-bold hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 font-bold hover:text-primary" href="#">Terms of Service</a>
+<a class="text-slate-500 dark:text-slate-400 font-bold hover:text-primary" href="#">Contact Us</a>
+</div>
+<div class="flex gap-4">
+<a class="size-12 bg-white dark:bg-slate-800 border-2 border-slate-900 rounded-full flex items-center justify-center shadow-chunky-sm hover:-translate-y-1 transition-transform" href="#">
+<svg class="size-6 fill-slate-900 dark:fill-white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="size-12 bg-white dark:bg-slate-800 border-2 border-slate-900 rounded-full flex items-center justify-center shadow-chunky-sm hover:-translate-y-1 transition-transform" href="#">
+<svg class="size-6 fill-slate-900 dark:fill-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.981 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.351-.2 6.77-2.618 6.97-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+</a>
+</div>
+</div>
+<div class="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
+<p class="text-slate-500 dark:text-slate-400 font-bold">© 2024 FoodieHero Inc. All rights reserved. Built with high energy.</p>
+</div>
+</div>
+</footer>
+
+</body></html>
