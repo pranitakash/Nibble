@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import ExploreNavbar from './components/layout/ExploreNavbar';
+import CheckoutNavbar from './components/layout/CheckoutNavbar';
 import Footer from './components/layout/Footer';
+import CheckoutFooter from './components/layout/CheckoutFooter';
 import LandingPage from './pages/LandingPage';
 import DiscoveryPage from './pages/DiscoveryPage';
 import MenuPage from './pages/MenuPage';
@@ -15,11 +17,18 @@ import './App.css';
 
 const AppContent = () => {
   const location = useLocation();
-  const isExploreNavbar = location.pathname.startsWith('/explore') || location.pathname.startsWith('/restaurant/');
+  const isCheckout = location.pathname === '/checkout';
+  const isExploreNavbar = location.pathname.startsWith('/explore') || location.pathname.startsWith('/restaurant/') || location.pathname.startsWith('/tracking/');
+
+  const renderNavbar = () => {
+    if (isCheckout) return <CheckoutNavbar />;
+    if (isExploreNavbar) return <ExploreNavbar />;
+    return <Navbar />;
+  };
 
   return (
     <div className="app-container">
-      {isExploreNavbar ? <ExploreNavbar /> : <Navbar />}
+      {renderNavbar()}
       <main className="main-content">
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -34,7 +43,7 @@ const AppContent = () => {
           {/* Add other routes here */}
         </Routes>
       </main>
-      <Footer />
+      {isCheckout ? <CheckoutFooter /> : <Footer />}
     </div>
   );
 };

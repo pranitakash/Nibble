@@ -2,13 +2,13 @@ import React from 'react';
 
 const TrackingPage: React.FC = () => {
     return (
-        <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-hidden relative">
+        <div className="bg-background-light text-slate-900 min-h-screen overflow-hidden relative">
             {/* Custom Map Grid Background */}
-            <div className="absolute inset-0 flex items-center justify-center bg-slate-200 dark:bg-slate-800"
+            <div className="absolute inset-0 flex items-center justify-center bg-slate-100"
                 style={{
                     backgroundImage: 'radial-gradient(#1c1c0d 1px, transparent 1px)',
                     backgroundSize: '30px 30px',
-                    opacity: 0.1
+                    opacity: 0.05
                 }}>
 
                 {/* Visual "Paths" on the map */}
@@ -40,7 +40,7 @@ const TrackingPage: React.FC = () => {
             <main className="relative z-20 max-w-7xl mx-auto pt-32 pb-24 px-6 lg:px-12 flex flex-col lg:flex-row gap-8 items-start">
                 {/* Left Column: Progress Info */}
                 <div className="w-full lg:w-[450px]">
-                    <div className="bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-2xl shadow-chunky overflow-hidden">
+                    <div className="bg-white border-4 border-slate-900 rounded-2xl shadow-chunky overflow-hidden">
                         <div className="bg-slate-900 p-6 flex items-center justify-between">
                             <span className="text-white font-black uppercase text-sm tracking-widest">Order #FH-8829</span>
                             <div className="bg-primary px-3 py-1 rounded-full border-2 border-white text-xs font-black text-slate-900 italic">
@@ -58,7 +58,7 @@ const TrackingPage: React.FC = () => {
                                     />
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-2xl font-black leading-tight text-slate-900 dark:text-white uppercase italic">Rider is picking up your food!</h3>
+                                    <h3 className="text-2xl font-black leading-tight text-slate-900 uppercase italic">Rider is picking up your food!</h3>
                                     <p className="text-slate-500 font-bold uppercase tracking-tighter text-sm mt-1">Hero: Marcus J.</p>
                                 </div>
                             </div>
@@ -69,12 +69,12 @@ const TrackingPage: React.FC = () => {
                                         <span className="bg-primary px-3 py-1 rounded-full border-2 border-slate-900 text-[10px] font-black uppercase">Pickup</span>
                                         <span className="font-black text-xl italic">65%</span>
                                     </div>
-                                    <div className="w-full h-6 bg-slate-100 dark:bg-slate-700 border-4 border-slate-900 rounded-full overflow-hidden shadow-chunky-sm">
+                                    <div className="w-full h-6 bg-slate-100 border-4 border-slate-900 rounded-full overflow-hidden shadow-chunky-sm">
                                         <div className="h-full bg-primary" style={{ width: '65%' }}></div>
                                     </div>
                                 </div>
 
-                                <div className="space-y-4 pt-4 border-t-2 border-dashed border-slate-200 dark:border-slate-700">
+                                <div className="space-y-4 pt-4 border-t-2 border-dashed border-slate-200">
                                     <div className="flex items-center gap-4 group">
                                         <div className="w-8 h-8 rounded-full bg-primary border-2 border-slate-900 flex items-center justify-center shadow-chunky-sm">
                                             <span className="material-symbols-outlined text-sm font-black">check</span>
@@ -111,10 +111,10 @@ const TrackingPage: React.FC = () => {
 
                 {/* Right Column: Mini Summary */}
                 <div className="hidden lg:block w-72">
-                    <div className="bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-3xl p-6 shadow-chunky">
+                    <div className="bg-white border-4 border-slate-900 rounded-3xl p-6 shadow-chunky">
                         <h3 className="font-black text-lg mb-6 uppercase tracking-tight underline decoration-primary decoration-4 underline-offset-4 w-fit">Order Summary</h3>
                         <div className="space-y-4">
-                            <div className="flex justify-between items-center bg-slate-50 dark:bg-slate-900 px-4 py-2 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-700">
+                            <div className="flex justify-between items-center bg-slate-50 px-4 py-2 rounded-xl border-2 border-dashed border-slate-200">
                                 <span className="text-xs font-black uppercase">Double Hero Burger</span>
                                 <span className="text-xs font-black italic">x1</span>
                             </div>
