@@ -6,7 +6,7 @@ import DashboardHeader from '../components/layout/DashboardHeader';
 
 const RestaurantDashboardPage: React.FC = () => {
     const navItems = [
-        { icon: 'menu_book', label: 'Menu Editor', href: '#', active: true },
+        { icon: 'menu_book', label: 'Menu Editor', href: '/restaurant-dashboard', active: true },
     ];
 
     const storeStatus = (
@@ -25,7 +25,7 @@ const RestaurantDashboardPage: React.FC = () => {
             >
                 Alerts
             </motion.button>
-            <Link to="/login">
+            <Link to="/">
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

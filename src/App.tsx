@@ -11,6 +11,7 @@ import TrackingPage from './pages/TrackingPage';
 import AboutPage from './pages/AboutPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import PartnersPage from './pages/PartnersPage';
+import ContactPage from './pages/ContactPage';
 import RiderLandingPage from './pages/RiderLandingPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
@@ -32,6 +33,7 @@ const AppContent = () => {
         <Route path="about" element={<AboutPage />} />
         <Route path="how-it-works" element={<HowItWorksPage />} />
         <Route path="partners" element={<PartnersPage />} />
+        <Route path="contact" element={<ContactPage />} />
         <Route path="riders" element={<RiderLandingPage />} />
         <Route path="nomnom" element={<NomNomPage />} />
       </Route>
@@ -46,6 +48,7 @@ const AppContent = () => {
 
       {/* Dashboards (Common background/base) */}
       <Route element={<DashboardLayout />}>
+        <Route path="dashboard" element={<UserDashboardPage />} />
         <Route path="restaurant-dashboard" element={<RestaurantDashboardPage />} />
         <Route path="rider-dashboard" element={<RiderDashboardPage />} />
         <Route path="user-dashboard" element={<UserDashboardPage />} />

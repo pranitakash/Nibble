@@ -18,7 +18,7 @@ const ExploreNavbar: React.FC = () => {
 
                 {/* Centered Cluster - Absolute Positioning */}
                 <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 h-full">
-                    <Link to="/dashboard" className="text-sm font-bold text-accent-dark hover:text-primary transition-colors py-2 leading-none">Dashboard</Link>
+                    <Link to="/user-dashboard" className="text-sm font-bold text-accent-dark hover:text-primary transition-colors py-2 leading-none">Dashboard</Link>
                     <button
                         onClick={() => setIsSearchOpen(true)}
                         className="flex items-center gap-2 text-sm font-bold text-accent-dark hover:text-primary transition-colors group py-2 leading-none"
@@ -36,13 +36,15 @@ const ExploreNavbar: React.FC = () => {
                         <span className="text-[10px] font-bold uppercase text-accent-dark/50 max-w-[120px] truncate tracking-tight">123 Food Street, Manha...</span>
                     </div>
 
-                    <motion.button
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95, y: 0 }}
-                        className="bg-primary border-2 border-accent-dark shadow-chunky-sm px-6 py-3 rounded-full text-sm font-black transition-all leading-none"
-                    >
-                        Log Out
-                    </motion.button>
+                    <Link to="/">
+                        <motion.button
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95, y: 0 }}
+                            className="bg-primary border-2 border-accent-dark shadow-chunky-sm px-6 py-3 rounded-full text-sm font-black transition-all leading-none"
+                        >
+                            Log Out
+                        </motion.button>
+                    </Link>
                 </div>
             </nav>
 

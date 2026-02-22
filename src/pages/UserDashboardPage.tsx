@@ -6,13 +6,13 @@ import DashboardHeader from '../components/layout/DashboardHeader';
 
 const UserDashboardPage: React.FC = () => {
     const navItems = [
-        { icon: 'receipt_long', label: 'My Orders', href: '#', active: true },
-        { icon: 'favorite', label: 'Favorite Spots', href: '#' },
-        { icon: 'location_on', label: 'Addresses', href: '#' },
+        { icon: 'receipt_long', label: 'My Orders', href: '/user-dashboard', active: true },
+        { icon: 'favorite', label: 'Favorite Spots', href: '/user-dashboard' },
+        { icon: 'location_on', label: 'Addresses', href: '/user-dashboard' },
     ];
 
     const logoutButton = (
-        <Link to="/login">
+        <Link to="/">
             <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

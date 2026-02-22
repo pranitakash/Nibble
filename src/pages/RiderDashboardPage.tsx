@@ -6,7 +6,7 @@ import DashboardHeader from '../components/layout/DashboardHeader';
 
 const RiderDashboardPage: React.FC = () => {
     const navItems = [
-        { icon: 'account_balance_wallet', label: 'Wallet', href: '#', active: true },
+        { icon: 'account_balance_wallet', label: 'Wallet', href: '/rider-dashboard', active: true },
     ];
 
     const riderStatus = (
@@ -25,7 +25,7 @@ const RiderDashboardPage: React.FC = () => {
             >
                 Offline
             </motion.button>
-            <Link to="/login">
+            <Link to="/">
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
