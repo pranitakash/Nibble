@@ -9,11 +9,13 @@ const Navbar: React.FC = () => {
                     <div className="bg-primary p-1 rounded-lg border border-accent-dark">
                         <span className="material-symbols-outlined text-accent-dark font-bold">fastfood</span>
                     </div>
-                    <span className="text-xl font-black tracking-tight text-accent-dark">FoodieHero</span>
+                    <span className="text-xl font-black tracking-tight text-accent-dark">Nibble</span>
                 </Link>
 
                 <div className="hidden md:flex items-center gap-8">
-                    <Link to="/explore" className="text-sm font-bold hover:text-primary transition-colors">Explore</Link>
+                    <Link to="/explore" className="text-sm font-bold hover:text-primary transition-colors">NomNom</Link>
+                    <Link to="/about" className="text-sm font-bold hover:text-primary transition-colors">About Nibble</Link>
+                    <Link to="/how-it-works" className="text-sm font-bold hover:text-primary transition-colors">How it Works</Link>
                     <Link to="/restaurant-partner" className="text-sm font-bold hover:text-primary transition-colors">Partners</Link>
                     <Link to="/rider" className="text-sm font-bold hover:text-primary transition-colors">Riders</Link>
                 </div>

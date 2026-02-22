@@ -125,7 +125,7 @@ const CheckoutPage: React.FC = () => {
                                 PLACE ORDER
                             </button>
                             <p className="text-center text-[10px] font-bold text-accent-dark/40 mt-4 px-4 uppercase tracking-wider">
-                                By placing your order you agree to FoodieHero's Terms of Service
+                                By placing your order you agree to Nibble's Terms of Service
                             </p>
                         </section>
 

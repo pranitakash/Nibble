@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
                             <div className="bg-primary p-1 rounded-lg border border-accent-dark">
                                 <span className="material-symbols-outlined text-accent-dark font-bold">fastfood</span>
                             </div>
-                            <span className="text-2xl font-black tracking-tight text-accent-dark">FoodieHero</span>
+                            <span className="text-2xl font-black tracking-tight text-accent-dark">Nibble</span>
                         </div>
                         <p className="text-accent-dark/60 font-medium mb-6">Redefining how you eat, one delivery at a time. The world's first hero-powered delivery platform.</p>
                         <div className="flex gap-4">
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
                             <li><a className="hover:text-accent-dark transition-colors" href="#">Find Restaurants</a></li>
                             <li><a className="hover:text-accent-dark transition-colors" href="#">Become a Rider</a></li>
                             <li><a className="hover:text-accent-dark transition-colors" href="#">Partner With Us</a></li>
-                            <li><a className="hover:text-accent-dark transition-colors" href="#">FoodieHero For Business</a></li>
+                            <li><a className="hover:text-accent-dark transition-colors" href="#">Nibble For Business</a></li>
                         </ul>
                     </div>
                     <div>
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className="pt-8 border-t-2 border-accent-dark/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-accent-dark/40 font-bold text-sm">© 2024 FoodieHero Inc. All rights reserved.</p>
+                    <p className="text-accent-dark/40 font-bold text-sm">© 2026 Nibble Inc. All rights reserved.</p>
                     <div className="flex gap-8 text-sm font-bold text-accent-dark/40">
                         <a className="hover:text-accent-dark" href="#">Privacy</a>
                         <a className="hover:text-accent-dark" href="#">Cookies</a>

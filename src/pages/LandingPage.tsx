@@ -32,7 +32,7 @@ const LandingPage: React.FC = () => {
                                 <div className="flex items-center px-6 py-4 bg-white border-b-2 sm:border-b-0 sm:border-r-2 border-accent-dark/10 flex-1">
                                     <span className="material-symbols-outlined text-accent-dark/40 mr-3">location_on</span>
                                     <input
-                                        className="w-full border-none focus:ring-0 text-accent-dark font-bold placeholder:text-accent-dark/30 bg-transparent"
+                                        className="w-full border-none focus:ring-0 focus:outline-none text-accent-dark font-bold placeholder:text-accent-dark/30 bg-transparent"
                                         placeholder="Enter delivery address"
                                         type="text"
                                     />
@@ -95,7 +95,7 @@ const LandingPage: React.FC = () => {
                         {/* Floating Labels */}
                         <div className="absolute -top-6 -right-12 bg-white border-2 border-accent-dark rounded-2xl px-4 py-2 shadow-chunky-sm rotate-12 flex items-center gap-2">
                             <span className="material-symbols-outlined text-red-500">favorite</span>
-                            <span className="font-black text-sm">Best Burger 2024</span>
+                            <span className="font-black text-sm">Best Burger 2026</span>
                         </div>
                         <div className="absolute bottom-10 -left-16 bg-white border-2 border-accent-dark rounded-2xl px-4 py-2 shadow-chunky-sm -rotate-6 flex items-center gap-2">
                             <span className="material-symbols-outlined text-green-500">eco</span>
@@ -226,7 +226,7 @@ const LandingPage: React.FC = () => {
                     <div className="bg-white border-4 border-accent-dark rounded-3xl p-10 text-accent-dark shadow-chunky relative overflow-hidden group">
                         <div className="relative z-10">
                             <h3 className="text-4xl font-black mb-4">Boost Sales</h3>
-                            <p className="text-lg text-accent-dark/60 mb-8 max-w-sm leading-relaxed">Partner with FoodieHero and watch your orders skyrocket. We handle the logistics.</p>
+                            <p className="text-lg text-accent-dark/60 mb-8 max-w-sm leading-relaxed">Partner with Nibble and watch your orders skyrocket. We handle the logistics.</p>
                             <button className="bg-accent-dark text-white px-8 py-3 rounded-full font-black hover:translate-x-2 transition-transform shadow-chunky-sm">
                                 Add Restaurant
                             </button>
