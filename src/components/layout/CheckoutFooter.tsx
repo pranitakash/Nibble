@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CheckoutFooter: React.FC = () => {
     return (
-        <footer className="bg-white border-t border-accent-dark/10 py-8 px-6 lg:px-12">
+        <footer className="bg-white border-t border-accent-dark/10 py-4 px-6 lg:px-12">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
                 {/* Branding */}
                 <Link to="/" className="flex items-center gap-2">
