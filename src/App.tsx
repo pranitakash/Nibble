@@ -12,7 +12,6 @@ import TrackingPage from './pages/TrackingPage';
 import CustomerDashboard from './pages/CustomerDashboard';
 import RestaurantDashboard from './pages/RestaurantDashboard';
 import RiderDashboard from './pages/RiderDashboard';
-import RiderFleetDashboard from './pages/RiderFleetDashboard';
 import './App.css';
 
 const AppContent = () => {
@@ -39,7 +38,6 @@ const AppContent = () => {
           <Route path="/dashboard" element={<CustomerDashboard />} />
           <Route path="/restaurant-partner" element={<RestaurantDashboard />} />
           <Route path="/rider" element={<RiderDashboard />} />
-          <Route path="/rider-fleet" element={<RiderFleetDashboard />} />
           {/* Add other routes here */}
         </Routes>
       </main>
