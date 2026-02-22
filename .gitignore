@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Project docs and designs
+FIGMA/
+nibble_prd.md
