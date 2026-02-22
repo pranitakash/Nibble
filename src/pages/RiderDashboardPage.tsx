@@ -6,10 +6,7 @@ import DashboardHeader from '../components/layout/DashboardHeader';
 
 const RiderDashboardPage: React.FC = () => {
     const navItems = [
-        { icon: 'dashboard', label: 'Dashboard', href: '#', active: true },
-        { icon: 'account_balance_wallet', label: 'Wallet', href: '#' },
-        { icon: 'calendar_month', label: 'Schedule', href: '#' },
-        { icon: 'contact_support', label: 'Support', href: '#' },
+        { icon: 'account_balance_wallet', label: 'Wallet', href: '#', active: true },
     ];
 
     const riderStatus = (
