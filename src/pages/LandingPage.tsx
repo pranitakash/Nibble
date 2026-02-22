@@ -138,8 +138,8 @@ const LandingPage: React.FC = () => {
             </main>
 
             {/* Popular Categories */}
-            <section className="py-20 px-6 lg:px-20 bg-background-light">
-                <div className="max-w-7xl mx-auto">
+            <section className="py-20 bg-background-light overflow-x-hidden">
+                <div className="max-w-7xl mx-auto px-6 lg:px-20">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                         <div>
                             <h2 className="text-4xl font-black text-accent-dark mb-4">Craving Something?</h2>
@@ -158,111 +158,117 @@ const LandingPage: React.FC = () => {
                             </button>
                         </div>
                     </div>
+                </div>
 
-                    <div
-                        ref={scrollRef}
-                        className="flex overflow-x-auto gap-6 pt-4 pb-12 px-2 no-scrollbar scroll-smooth snap-x"
-                    >
-                        {/* Burger */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-primary/10 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-primary group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">lunch_dining</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Burgers</p>
-                            </div>
-                        </div>
+                <div
+                    ref={scrollRef}
+                    className="flex overflow-x-auto gap-6 pt-4 pb-12 no-scrollbar scroll-smooth snap-x"
+                >
+                    {/* Spacer for alignment */}
+                    <div className="min-w-[max(1.5rem,calc((100vw-1280px)/2+5rem))] flex-shrink-0" />
 
-                        {/* Pizza */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-orange-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-400 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">local_pizza</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Pizza</p>
+                    {/* Burger */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-primary/10 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-primary group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">lunch_dining</span>
                             </div>
-                        </div>
-
-                        {/* Sushi */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-red-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-400 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">set_meal</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Sushi</p>
-                            </div>
-                        </div>
-
-                        {/* Tacos */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-yellow-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-yellow-400 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">taco</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Tacos</p>
-                            </div>
-                        </div>
-
-                        {/* Pasta */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-orange-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-600 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">dinner_dining</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Pasta</p>
-                            </div>
-                        </div>
-
-                        {/* Desserts */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-pink-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-pink-400 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">icecream</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Desserts</p>
-                            </div>
-                        </div>
-
-                        {/* Asian */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-red-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-500 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">ramen_dining</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Asian</p>
-                            </div>
-                        </div>
-
-                        {/* Healthy */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-green-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-green-400 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">potted_plant</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Healthy</p>
-                            </div>
-                        </div>
-
-                        {/* Drinks */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-blue-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-blue-400 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">local_bar</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Drinks</p>
-                            </div>
-                        </div>
-
-                        {/* Bakery */}
-                        <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer">
-                            <div className="bg-amber-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-amber-400 group-hover:shadow-chunky">
-                                <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
-                                    <span className="material-symbols-outlined text-4xl">bakery_dining</span>
-                                </div>
-                                <p className="text-center font-black text-accent-dark">Bakery</p>
-                            </div>
+                            <p className="text-center font-black text-accent-dark">Burgers</p>
                         </div>
                     </div>
+
+                    {/* Pizza */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-orange-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-400 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">local_pizza</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Pizza</p>
+                        </div>
+                    </div>
+
+                    {/* Sushi */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-red-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-400 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">set_meal</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Sushi</p>
+                        </div>
+                    </div>
+
+                    {/* Tacos */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-yellow-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-yellow-400 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">taco</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Tacos</p>
+                        </div>
+                    </div>
+
+                    {/* Pasta */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-orange-50 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-orange-600 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">dinner_dining</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Pasta</p>
+                        </div>
+                    </div>
+
+                    {/* Desserts */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-pink-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-pink-400 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">icecream</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Desserts</p>
+                        </div>
+                    </div>
+
+                    {/* Asian */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-red-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-red-500 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">ramen_dining</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Asian</p>
+                        </div>
+                    </div>
+
+                    {/* Healthy */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-green-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-green-400 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">potted_plant</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Healthy</p>
+                        </div>
+                    </div>
+
+                    {/* Drinks */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-blue-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-blue-400 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">local_bar</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Drinks</p>
+                        </div>
+                    </div>
+
+                    {/* Bakery */}
+                    <div className="min-w-[160px] md:min-w-[200px] snap-start group cursor-pointer flex-shrink-0">
+                        <div className="bg-amber-100 rounded-3xl border-2 border-accent-dark p-6 transition-all group-hover:-translate-y-2 group-hover:bg-amber-400 group-hover:shadow-chunky">
+                            <div className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center mb-4 border-2 border-accent-dark">
+                                <span className="material-symbols-outlined text-4xl">bakery_dining</span>
+                            </div>
+                            <p className="text-center font-black text-accent-dark">Bakery</p>
+                        </div>
+                    </div>
+
+                    {/* End Spacer */}
+                    <div className="min-w-[max(1.5rem,calc((100vw-1280px)/2+5rem))] flex-shrink-0" />
                 </div>
             </section>
 
