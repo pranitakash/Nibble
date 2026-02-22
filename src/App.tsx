@@ -15,11 +15,11 @@ import './App.css';
 
 const AppContent = () => {
   const location = useLocation();
-  const isExplorePage = location.pathname === '/explore';
+  const isExploreNavbar = location.pathname.startsWith('/explore') || location.pathname.startsWith('/restaurant/');
 
   return (
     <div className="app-container">
-      {isExplorePage ? <ExploreNavbar /> : <Navbar />}
+      {isExploreNavbar ? <ExploreNavbar /> : <Navbar />}
       <main className="main-content">
         <Routes>
           <Route path="/" element={<LandingPage />} />

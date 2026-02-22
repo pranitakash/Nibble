@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface MenuItem {
     id: number;
@@ -10,6 +11,8 @@ interface MenuItem {
 }
 
 const MenuPage: React.FC = () => {
+    const [activeCategory, setActiveCategory] = useState<string>('Popular');
+    const [showToast, setShowToast] = useState<string | null>(null);
     const [bag] = useState<MenuItem[]>([
         {
             id: 1,
@@ -66,8 +69,15 @@ const MenuPage: React.FC = () => {
 
     const subtotal = bag.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
+    const categories = ['Popular', 'Smash Burgers', 'Hero Sides', 'Super Shakes'];
+
+    const handleAddToCart = (itemName: string) => {
+        setShowToast(itemName);
+        setTimeout(() => setShowToast(null), 3000);
+    };
+
     return (
-        <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+        <div className="bg-background-light text-accent-dark min-h-screen">
             <main className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-6 py-10 pt-28">
                 <div className="flex-1">
                     <div className="mb-12">
@@ -86,28 +96,39 @@ const MenuPage: React.FC = () => {
                                     </div>
                                 </div>
                                 <h2 className="text-5xl font-black mb-2 uppercase">The Hero Burger</h2>
-                                <p className="text-slate-500 dark:text-slate-400 font-bold italic">Burgers • American • High-Energy Fuel</p>
+                                <p className="text-accent-dark/60 font-bold italic">Burgers • American • High-Energy Fuel</p>
                             </div>
                         </div>
-                        <div className="flex gap-4 overflow-x-auto pb-4 custom-scrollbar">
-                            <button className="bg-primary text-slate-900 px-6 py-2 rounded-full font-black border-2 border-slate-900 shadow-chunky-sm whitespace-nowrap active:translate-x-0.5 active:translate-y-0.5 active:shadow-none">Popular</button>
-                            <button className="bg-white dark:bg-slate-800 px-6 py-2 rounded-full font-black border-2 border-slate-900 hover:bg-primary transition-colors whitespace-nowrap active:translate-x-0.5 active:translate-y-0.5 active:shadow-none">Smash Burgers</button>
-                            <button className="bg-white dark:bg-slate-800 px-6 py-2 rounded-full font-black border-2 border-slate-900 hover:bg-primary transition-colors whitespace-nowrap active:translate-x-0.5 active:translate-y-0.5 active:shadow-none">Hero Sides</button>
-                            <button className="bg-white dark:bg-slate-800 px-6 py-2 rounded-full font-black border-2 border-slate-900 hover:bg-primary transition-colors whitespace-nowrap active:translate-x-0.5 active:translate-y-0.5 active:shadow-none">Super Shakes</button>
+                        <div className="flex gap-4 overflow-x-auto py-4 custom-scrollbar">
+                            {categories.map((cat) => (
+                                <button
+                                    key={cat}
+                                    onClick={() => setActiveCategory(cat)}
+                                    className={`px-8 py-3 rounded-full font-black border-2 border-slate-900 transition-all whitespace-nowrap active:translate-x-0.5 active:translate-y-0.5 active:shadow-none ${activeCategory === cat
+                                        ? 'bg-primary text-slate-900 shadow-chunky-sm'
+                                        : 'bg-white text-slate-900 hover:shadow-chunky-sm hover:-translate-y-0.5'
+                                        }`}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {menuItems.map((item) => (
-                            <div key={item.id} className="bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-2xl overflow-hidden group shadow-chunky-sm hover:shadow-chunky transition-all">
+                            <div key={item.id} className="bg-white border-4 border-slate-900 rounded-2xl overflow-hidden group shadow-chunky-sm hover:shadow-chunky transition-all">
                                 <div className="relative h-48">
                                     <img alt={item.name} className="w-full h-full object-cover border-b-4 border-slate-900" src={item.image} />
                                     <div className="absolute top-4 right-4 bg-primary px-3 py-1 rounded-full border-2 border-slate-900 font-black text-sm">${item.price.toFixed(2)}</div>
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-black mb-2 underline decoration-primary decoration-4 underline-offset-4">{item.name}</h3>
-                                    <p className="text-slate-500 dark:text-slate-400 text-sm font-bold mb-6">{item.description}</p>
-                                    <button className="w-full bg-primary hover:bg-[#ece805] text-slate-900 py-3 rounded-full font-black border-2 border-slate-900 shadow-chunky-sm flex items-center justify-center gap-2 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all">
+                                    <p className="text-accent-dark/60 text-sm font-bold mb-6">{item.description}</p>
+                                    <button
+                                        onClick={() => handleAddToCart(item.name)}
+                                        className="w-full bg-primary hover:bg-green-500 hover:text-white text-slate-900 py-3 rounded-full font-black border-2 border-slate-900 shadow-chunky-sm flex items-center justify-center gap-2 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all"
+                                    >
                                         <span className="material-symbols-outlined">add_circle</span>
                                         ADD TO HERO BAG
                                     </button>
@@ -119,7 +140,7 @@ const MenuPage: React.FC = () => {
 
                 {/* Sidebar Bag */}
                 <aside className="w-full lg:w-96 lg:sticky lg:top-28 h-fit">
-                    <div className="bg-white dark:bg-slate-800 border-4 border-slate-900 rounded-3xl overflow-hidden shadow-chunky flex flex-col">
+                    <div className="bg-white border-4 border-slate-900 rounded-3xl overflow-hidden shadow-chunky flex flex-col">
                         <div className="bg-primary p-6 border-b-4 border-slate-900">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3 text-slate-900">
@@ -140,13 +161,13 @@ const MenuPage: React.FC = () => {
                                             <h4 className="font-black text-sm leading-tight uppercase">{item.name}</h4>
                                             <span className="font-black text-sm">${item.price.toFixed(2)}</span>
                                         </div>
-                                        <p className="text-[10px] text-slate-500 font-bold mb-2 italic">{item.description}</p>
+                                        <p className="text-[10px] text-accent-dark/60 font-bold mb-2 italic">{item.description}</p>
                                         <div className="flex items-center gap-3">
-                                            <button className="size-6 rounded-md border-2 border-slate-900 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                                            <button className="size-6 rounded-md border-2 border-slate-900 flex items-center justify-center hover:bg-primary transition-all active:scale-90 active:translate-y-0.5 text-slate-900">
                                                 <span className="material-symbols-outlined text-xs font-black">remove</span>
                                             </button>
                                             <span className="font-black text-sm">{item.qty}</span>
-                                            <button className="size-6 rounded-md border-2 border-slate-900 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                                            <button className="size-6 rounded-md border-2 border-slate-900 flex items-center justify-center hover:bg-primary transition-all active:scale-90 active:translate-y-0.5 text-slate-900">
                                                 <span className="material-symbols-outlined text-xs font-black">add</span>
                                             </button>
                                         </div>
@@ -154,25 +175,25 @@ const MenuPage: React.FC = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="p-6 bg-slate-50 dark:bg-slate-800/50 border-t-4 border-slate-900 space-y-2">
-                            <div className="flex justify-between font-bold text-slate-500 dark:text-slate-400">
+                        <div className="p-6 bg-slate-50 border-t-4 border-slate-900 space-y-2">
+                            <div className="flex justify-between font-bold text-accent-dark/60">
                                 <span>Subtotal</span>
                                 <span>${subtotal.toFixed(2)}</span>
                             </div>
-                            <div className="flex justify-between font-bold text-slate-500 dark:text-slate-400">
+                            <div className="flex justify-between font-bold text-accent-dark/60">
                                 <div className="flex items-center gap-1">
                                     <span>Hero Delivery</span>
                                     <span className="material-symbols-outlined text-sm">info</span>
                                 </div>
                                 <span className="text-green-500 font-black">FREE</span>
                             </div>
-                            <div className="flex justify-between items-center pt-2 mt-2 border-t-2 border-slate-200 dark:border-slate-700">
+                            <div className="flex justify-between items-center pt-2 mt-2 border-t-2 border-accent-dark/10">
                                 <span className="text-xl font-black uppercase">Total</span>
                                 <span className="text-3xl font-black">${subtotal.toFixed(2)}</span>
                             </div>
                         </div>
                         <div className="p-6 pt-0">
-                            <button className="w-full bg-slate-900 text-white py-6 rounded-2xl font-black text-xl border-4 border-slate-900 shadow-chunky transition-all active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center justify-center gap-3 group">
+                            <button className="w-full bg-white hover:bg-primary text-slate-900 py-6 rounded-2xl font-black text-xl border-4 border-slate-900 shadow-chunky transition-all active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center justify-center gap-3 group">
                                 CHECKOUT NOW
                                 <span className="material-symbols-outlined font-black group-hover:translate-x-1 transition-transform">arrow_forward</span>
                             </button>
@@ -185,11 +206,28 @@ const MenuPage: React.FC = () => {
                         </div>
                         <div className="flex-1">
                             <p className="text-xs font-black text-slate-900 uppercase">HERO10 Applied!</p>
-                            <p className="text-[10px] font-bold text-slate-500 uppercase">You've unlocked free delivery for this order.</p>
+                            <p className="text-[10px] font-bold text-accent-dark/60 uppercase">You've unlocked free delivery for this order.</p>
                         </div>
                     </div>
                 </aside>
             </main>
+
+            {/* Toast Notification */}
+            <AnimatePresence>
+                {showToast && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100]"
+                    >
+                        <div className="bg-slate-900 text-white border-2 border-white px-8 py-4 rounded-2xl shadow-chunky flex items-center gap-3">
+                            <span className="material-symbols-outlined text-primary">check_circle</span>
+                            <span className="font-black uppercase tracking-tight">{showToast} added to bag!</span>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
