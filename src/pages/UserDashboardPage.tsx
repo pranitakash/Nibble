@@ -6,7 +6,7 @@ import DashboardHeader from '../components/layout/DashboardHeader';
 
 const UserDashboardPage: React.FC = () => {
     const navItems = [
-        { icon: 'receipt_long', label: 'My Orders', href: '/user/orders', active: true },
+        { icon: 'receipt_long', label: 'My Orders', href: '/user/orders' },
         { icon: 'favorite', label: 'Favorite Spots', href: '/user/favorites' },
         { icon: 'location_on', label: 'Addresses', href: '/user/addresses' },
     ];

@@ -6,7 +6,7 @@ import DashboardHeader from '../components/layout/DashboardHeader';
 
 const RestaurantDashboardPage: React.FC = () => {
     const navItems = [
-        { icon: 'menu_book', label: 'Menu Editor', href: '/restaurant/menu-editor', active: true },
+        { icon: 'menu_book', label: 'Menu Editor', href: '/restaurant/menu-editor' },
     ];
 
     const storeStatus = (
