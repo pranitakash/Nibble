@@ -1,47 +1,49 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import ExploreNavbar from './components/layout/ExploreNavbar';
-import CheckoutNavbar from './components/layout/CheckoutNavbar';
-import Footer from './components/layout/Footer';
-import CheckoutFooter from './components/layout/CheckoutFooter';
 import LandingPage from './pages/LandingPage';
 import DiscoveryPage from './pages/DiscoveryPage';
 import MenuPage from './pages/MenuPage';
 import CheckoutPage from './pages/CheckoutPage';
 import TrackingPage from './pages/TrackingPage';
-import CustomerDashboard from './pages/CustomerDashboard';
-import RestaurantDashboard from './pages/RestaurantDashboard';
-import RiderDashboard from './pages/RiderDashboard';
+import AboutPage from './pages/AboutPage';
+import HowItWorksPage from './pages/HowItWorksPage';
+import PartnersPage from './pages/PartnersPage';
+import RiderLandingPage from './pages/RiderLandingPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import PartnerSignupPage from './pages/PartnerSignupPage';
+import PartnerLoginPage from './pages/PartnerLoginPage';
+import RiderSignupPage from './pages/RiderSignupPage';
+import RiderLoginPage from './pages/RiderLoginPage';
+import RestaurantDashboardPage from './pages/RestaurantDashboardPage';
+import RiderDashboardPage from './pages/RiderDashboardPage';
+import UserDashboardPage from './pages/UserDashboardPage';
 import './App.css';
 
 const AppContent = () => {
-  const location = useLocation();
-  const isCheckout = location.pathname === '/checkout';
-  const isExploreNavbar = location.pathname.startsWith('/explore') || location.pathname.startsWith('/restaurant/') || location.pathname.startsWith('/tracking/');
-
-  const renderNavbar = () => {
-    if (isCheckout) return <CheckoutNavbar />;
-    if (isExploreNavbar) return <ExploreNavbar />;
-    return <Navbar />;
-  };
-
   return (
-    <div className="app-container">
-      {renderNavbar()}
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/explore" element={<DiscoveryPage />} />
-          <Route path="/restaurant/:id" element={<MenuPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/tracking/:id" element={<TrackingPage />} />
-          <Route path="/dashboard" element={<CustomerDashboard />} />
-          <Route path="/restaurant-partner" element={<RestaurantDashboard />} />
-          <Route path="/rider" element={<RiderDashboard />} />
-          {/* Add other routes here */}
-        </Routes>
-      </main>
-      {isCheckout ? <CheckoutFooter /> : <Footer />}
+    <div className="min-h-screen bg-cream">
+      <Routes>
+        <Route path="/" element={<><Navbar /><LandingPage /></>} />
+        <Route path="/explore" element={<><ExploreNavbar /><DiscoveryPage /></>} />
+        <Route path="/restaurant/:id" element={<><ExploreNavbar /><MenuPage /></>} />
+        <Route path="/checkout" element={<><ExploreNavbar /><CheckoutPage /></>} />
+        <Route path="/tracking" element={<><ExploreNavbar /><TrackingPage /></>} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/partners" element={<PartnersPage />} />
+        <Route path="/riders" element={<RiderLandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/partner-signup" element={<PartnerSignupPage />} />
+        <Route path="/partner-login" element={<PartnerLoginPage />} />
+        <Route path="/rider-signup" element={<RiderSignupPage />} />
+        <Route path="/rider-login" element={<RiderLoginPage />} />
+        <Route path="/restaurant-dashboard" element={<RestaurantDashboardPage />} />
+        <Route path="/rider-dashboard" element={<RiderDashboardPage />} />
+        <Route path="/user-dashboard" element={<UserDashboardPage />} />
+      </Routes>
     </div>
   );
 };
