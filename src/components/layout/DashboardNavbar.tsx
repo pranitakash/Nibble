@@ -38,9 +38,9 @@ const DashboardNavbar: React.FC<DashboardNavbarProps> = ({ items, statusSection,
                             to={item.href}
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.95, y: 0 }}
-                            className={`text-[11px] xl:text-xs font-bold transition-all py-3 px-5 rounded-full border-2 whitespace-nowrap flex items-center gap-2.5 ${item.active
-                                ? 'text-accent-dark border-accent-dark bg-primary shadow-chunky-sm'
-                                : 'text-accent-dark border-transparent hover:text-primary'
+                            className={`text-[11px] xl:text-xs font-bold transition-all py-3 px-5 rounded-full whitespace-nowrap flex items-center gap-2.5 ${item.active
+                                ? 'text-accent-dark underline decoration-primary decoration-4 underline-offset-4'
+                                : 'text-accent-dark/60 hover:text-accent-dark'
                                 }`}
                         >
                             <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1, 'wght' 700" }}>{item.icon}</span>
